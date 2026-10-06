@@ -14,6 +14,12 @@ data/
 *.safetensors
 checkpoints/
 
+# C build artifacts
+*.exe
+*.obj
+*.pdb
+*.ilk
+
 # Editor / OS
 .vscode/
 .idea/
