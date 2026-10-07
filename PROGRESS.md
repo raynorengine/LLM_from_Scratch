@@ -43,13 +43,16 @@ python step1_verify.py --self-test   검증기가 FAIL을 낼 수 있는지 확�
 
 ## 다음 할 일
 - **STEP 2 유니그램** 구현 (브리핑 → 승인 → 구현)
-- GitHub 최초 push (진행 중)
+- (완료) GitHub 최초 push — 커밋 `286754c`, 2026-10-07
 
 ## 미결정
 - 폴더명 `PART1_N-Gram` 유지 vs `Step1_N-Gram`으로 변경
   - 강의 문서(`챕터2-3`)는 `Step1_N-Gram`으로 표기. 변경 시 `CLAUDE.md`의 `PART{N}_{주제}` 규칙도 수정 필요
 
 ## 이슈/주의사항
+- **git push 시 인증 함정**: 샌드박스에서 `GIT_TERMINAL_PROMPT=0`, `GCM_INTERACTIVE=never`로 묶여 있어 인증을 묻지 못하고 실패한다.
+  두 값을 해제하고 `git -c credential.guiPrompt=true` 로 push할 것 (`devlog/2026-10-07.md` 참고)
+- git 사용자 정보는 **이 저장소 로컬에만** 설정됨 (`raynorengine` / `dongwookraynor@gmail.com`)
 - **GitHub 저장소는 public** (`raynorengine/LLM_from_Scratch`). `raw/`의 강의 정리 docx도 함께 공개됨
 - C 구현 시 반복되는 함정 4개 (`step1_char_freq.c` 주석에 기록)
   1. 개행(`\n`)을 글자로 세면 확률이 4.91% → 3.87%로 틀어짐
