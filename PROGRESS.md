@@ -45,10 +45,6 @@ python step1_verify.py --self-test   검증기가 FAIL을 낼 수 있는지 확�
 - **STEP 2 유니그램** 구현 (브리핑 → 승인 → 구현)
 - (완료) GitHub 최초 push — 커밋 `286754c`, 2026-10-07
 
-## 미결정
-- 폴더명 `PART1_N-Gram` 유지 vs `Step1_N-Gram`으로 변경
-  - 강의 문서(`챕터2-3`)는 `Step1_N-Gram`으로 표기. 변경 시 `CLAUDE.md`의 `PART{N}_{주제}` 규칙도 수정 필요
-
 ## 이슈/주의사항
 - **git push 시 인증 함정**: 샌드박스에서 `GIT_TERMINAL_PROMPT=0`, `GCM_INTERACTIVE=never`로 묶여 있어 인증을 묻지 못하고 실패한다.
   두 값을 해제하고 `git -c credential.guiPrompt=true` 로 push할 것 (`devlog/2026-10-07.md` 참고)
