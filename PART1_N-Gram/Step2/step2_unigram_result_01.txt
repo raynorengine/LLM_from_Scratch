@@ -1,0 +1,19 @@
+# 유니그램 생성 결과
+# table_file	../Step1/step1_char_freq_result.txt
+# table_kinds	2450
+# table_total	1551565
+# seed	42
+# length	5
+# count	10
+#
+greedy	다다다다다
+1	결르에동칼
+2	트회인음이
+3	리샤이참론
+4	일기잿다서
+5	사트실제위
+6	릴통돈타럭
+7	항비화조설
+8	약리시관다
+9	다비관소교
+10	놀릿하기원
