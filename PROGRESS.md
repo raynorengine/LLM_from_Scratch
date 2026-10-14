@@ -73,6 +73,7 @@ python step2_verify.py [--self-test]
 - **git push 인증 함정**: 샌드박스의 `GIT_TERMINAL_PROMPT=0`, `GCM_INTERACTIVE=never` 해제 후 `git -c credential.guiPrompt=true`로 push (`devlog/2026-10-07.md`)
 - **이 PC의 `core.autocrlf=true`**: 커밋된 결과 파일이 작업본에서 CRLF가 됨. 바이트 비교는 `git cat-file -p HEAD:<경로>`와 할 것. C에서 결과 파일을 읽을 땐 `\r` 제거
 - **Claude 셸의 `NoDefaultCurrentDirectoryInExePath=1`**: cmd가 현재 폴더 exe를 못 찾음 → `build.bat`은 전체 경로로 호출, exe는 `./`로 직접 실행 (`build.bat ... run`의 실행 단계는 Claude 환경에서 실패)
-- git 사용자 정보는 이 저장소 로컬에만 설정 (`raynorengine` / `dongwookraynor@gmail.com`). GitHub 저장소는 public
+- git 사용자 정보는 이 저장소 로컬에만 설정: **`raynorengine` / `raynorengine@gmail.com`** (사용자 확인 2026-10-14). GitHub 저장소는 public
+  - ⚠ 2026-10-07 다른 PC에서 `dongwookraynor@gmail.com`(Claude 계정 이메일)으로 잘못 설정됨 → 그 PC에서 작업 시 `git config --local user.email raynorengine@gmail.com` 먼저 실행
 - C 함정: 개행을 글자로 세지 않기 / UTF-8 선두 바이트로 길이 판단 / `SetConsoleOutputCP(CP_UTF8)` + `/utf-8` 둘 다 / `"rb"` 바이너리 모드
 - 빌드 스크립트는 `.bat` (PowerShell 5.1은 BOM 없는 `.ps1`의 한글을 CP949로 읽음)
