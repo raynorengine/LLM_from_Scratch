@@ -48,10 +48,11 @@
 ## 구현 결과물
 | 파일 | 역할 |
 |---|---|
-| `PART1_N-Gram/step1_char_freq.c` | 글자 빈도 계산 (C언어) |
-| `PART1_N-Gram/build.bat` | MSVC 빌드 스크립트 |
-| `PART1_N-Gram/step1_verify.py` | Python 독립 교차검증 |
-| `PART1_N-Gram/step1_char_freq_result.txt` | 전체 2,450종 빈도표 |
+| `PART1_N-Gram/Step1/step1_char_freq.c` | 글자 빈도 계산 (C언어) |
+| `PART1_N-Gram/Step1/build.bat` | MSVC 빌드 스크립트 |
+| `PART1_N-Gram/Step1/step1_verify.py` | Python 독립 교차검증 |
+| `PART1_N-Gram/Step1/step1_char_freq_result.txt` | 전체 2,450종 빈도표 |
+| `PART1_N-Gram/Step1/step1_char_freq.py` | C와 동일 기능의 Python 포팅 (비교 학습용) |
 
 ### 측정 결과
 - 전체 글자수 **1,551,565** / 고유 글자 종류 **2,450** / 개행(제외) **420,309** / 범위 외 문자 **0**

@@ -26,7 +26,7 @@ import tempfile
 
 DEFAULT_RESULT = pathlib.Path(__file__).parent / "step1_char_freq_result.txt"
 DEFAULT_SOURCE = (
-    pathlib.Path(__file__).parent.parent / "data" / "korean_dictionary" / "words.txt"
+    pathlib.Path(__file__).parent.parent.parent / "data" / "korean_dictionary" / "words.txt"
 )
 
 HANGUL_FIRST = "가"  # '가'

@@ -11,7 +11,7 @@
  *
  * 사용법
  *   step1_char_freq.exe [입력파일] [상위N개] [출력파일]
- *   기본값: ../data/korean_dictionary/words.txt  10  step1_char_freq_result.txt
+ *   기본값: ../../data/korean_dictionary/words.txt  10  step1_char_freq_result.txt
  *
  * 빌드
  *   build.bat step1_char_freq        (MSVC cl.exe 사용)
@@ -36,7 +36,7 @@
 #define HANGUL_LAST  0xD7A3u
 #define HANGUL_COUNT (HANGUL_LAST - HANGUL_BASE + 1u)  /* 11172 */
 
-#define DEFAULT_INPUT  "../data/korean_dictionary/words.txt"
+#define DEFAULT_INPUT  "../../data/korean_dictionary/words.txt"
 #define DEFAULT_OUTPUT "step1_char_freq_result.txt"
 #define DEFAULT_TOPN   10
 

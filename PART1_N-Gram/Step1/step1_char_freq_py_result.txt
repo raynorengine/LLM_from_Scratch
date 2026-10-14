@@ -1,5 +1,5 @@
 # 글자 빈도 계산 결과
-# input_file	../data/korean_dictionary/words.txt
+# input_file	../../data/korean_dictionary/words.txt
 # total_chars	1551565
 # unique_chars	2450
 # newlines	420309
