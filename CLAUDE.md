@@ -219,6 +219,26 @@ education/  실습 중 궁금했던 것·중요한 것·미처 생각 못 했던
 - **git 커밋 이메일은 무조건 `raynorengine@gmail.com`** (user.name `raynorengine`). 커밋 전 `git config user.email` 확인, 다르면 `--local`로 맞춘 뒤 커밋
   - Claude 계정 이메일 등 다른 주소를 추측해서 넣지 않는다 (2026-10-07 실제로 잘못 설정된 적 있음)
 
+## Git·GitHub 작업과 삭제 권한 (필수, 예외 없음, 2026-10-21 확정)
+**아래 "반드시 물어볼 것"은 어떤 상황에서도 사용자 확인 없이 실행하지 않는다.**
+"이번엔 괜찮아 보인다", "방금 내가 만든 것이다", "되돌릴 수 있을 것 같다", "이전에 비슷한 걸 허락받았다"도 예외가 아니다. 승인은 그 한 번에만 유효하다.
+
+### Claude가 판단해서 해도 되는 것
+- 조회: `git status` / `diff` / `log` / `show` / `fetch`
+- 삭제: **`.gitignore` 대상 생성물만** (`.exe`, `.obj`, `__pycache__/`, `.pyc` 등 빌드·실행하면 다시 생기는 것)
+
+### 반드시 사용자에게 먼저 물어볼 것
+- **`git commit`** (로컬 기록이어도 묻는다. 무엇을 어떤 커밋으로 나눌지 보여 주고 승인받는다)
+- **GitHub(원격)과 관련된 모든 작업**: `git push`(일반 push 포함), PR·이슈 생성, 원격 브랜치·태그 생성/삭제, `git remote` 변경
+  - commit과 push는 한 번에 같이 물어봐도 된다 (커밋 구성 + push 여부)
+- 커밋·히스토리 삭제/재작성: `reset --hard`, `rebase`, `commit --amend`, `revert`, `push --force`
+- 작업 내용 폐기: `checkout -- <파일>` / `restore`, `clean`, `stash drop`
+- 로컬 브랜치·태그 삭제: `branch -D`, `tag -d`
+- `.gitignore` 대상이 아닌 파일·폴더 삭제 또는 덮어쓰기 (`rm -rf` 등). 커밋된 결과 파일, `data/`, `raw/` 포함
+- DB 작업: `DROP TABLE` / `DROP DATABASE` / `TRUNCATE` / 조건 없는 `DELETE`
+- 물어볼 때는 **무엇을 왜 하는지 / 무엇이 사라지거나 바뀌는지 / 되돌리는 방법이 있는지**를 함께 알린다
+- 사용자가 "올리자", "push해"라고 해도 **바로 실행하지 않는다.** 그 말은 "오늘 작업물을 올려도 된다"는 뜻이지만, 커밋 구성(어떤 파일을 어떤 메시지로 몇 개 커밋으로)을 보여 주고 commit·push를 승인받은 뒤 실행한다
+
 ## 코딩 컨벤션
 
 ### 파일 네이밍 (필수)
