@@ -5,8 +5,9 @@ step4_verify.py - [STEP 4] 바이그램(step4_bigram.exe)과 트라이그램(ste
 ===== 무엇을 검증하나 (두 프로그램 각각) =====
   [1] n그램 빈도 전수 비교 : 바이그램 171,425 / 트라이그램 654,039개 전부가 Python 재계산과 같은가 (--dump)
   [2] 문맥 합계            : 문맥마다 합계가 "다른 방법으로 센 값"과 같은가 (--rows)
-  [3] r -> 글자 대응        : 모든 후보 구간의 시작·끝 r + 무작위 r에서 맞는 글자가 나오나 (--map)
-  [4] 분포 (카이제곱)       : 몇 개 문맥에서 대량으로 뽑은 횟수가 실제 확률과 맞나 (--hist)
+  [3] r -> 글자 대응        : 문맥 1,000개(+ [4]의 문맥)의 모든 후보 구간 시작·끝 r
+                             + 무작위 r 1,000개에서 맞는 글자가 나오나 (--map)
+  [4] 분포 (카이제곱)       : 몇 개 문맥에서 1,000번씩 뽑은 횟수가 실제 확률과 맞나 (--hist)
   [5] 생성 결과 파일        : 탐욕적 결과, 모든 단어의 n그램 실재, 표시(*, ~),
                              사전 일치율·길이별 수치를 단어 목록에서 다시 계산해 대조
                              (임시 폴더 실행 1회 + 폴더에 저장된 result_NN.txt 전부)
@@ -18,7 +19,7 @@ step4_verify.py - [STEP 4] 바이그램(step4_bigram.exe)과 트라이그램(ste
 
 ===== 독립성 (CLAUDE.md "검증 규칙") =====
 - 기준값은 전부 원본 words.txt에서 Python으로 처음부터 다시 센다. C 출력을 기준으로 쓰지 않는다.
-- C는 64비트 키 해시 + CSR + 이진 탐색이지만, 여기서는 튜플을 키로 쓰는 Counter로 세고
+- C는 64비트 키 해시에 후보 2,452개를 차례로 물어 누적하지만, 여기서는 튜플을 키로 쓰는 Counter로 세고
   r -> 글자 정답은 "구간 [시작, 끝]을 직접 나열"해서 만든다. 탐색 코드를 복사하지 않는다.
 - [2]의 기준은 n그램을 더한 값이 아니라 "문맥 자체가 나온 횟수"를 따로 센 값이다.
   (바이그램: 글자 하나씩 센 유니그램 / 트라이그램: [BOS, BOS, 단어]에서 센 인접 쌍)
@@ -52,8 +53,13 @@ SOURCE = HERE.parent.parent / "data" / "korean_dictionary" / "words.txt"
 BOS, EOS = "BOS", "EOS"
 MAX_LEN = 20                      # C의 MAX_LEN과 같은 규칙 (단어 최대 길이)
 LEN_BUCKETS = 10                  # 길이별 일치율: 1 ~ 9, 10 이상은 한 칸
-MAP_RANDOM_COUNT = 10_000         # [3] 경계값 외에 넣는 무작위 질의 수
-HIST_SAMPLES = 100_000            # [4] 문맥마다 뽑는 횟수
+# [3][4]의 표본 크기 (2026-10-22 사용자 지시: 1,000개)
+# C가 CSR 없이 해시에 후보 2,452개를 차례로 물어 뽑으므로 질의 하나가 수천 번의 해시 조회다.
+# 트라이그램의 모든 구간 경계(약 130만 질의)를 다 물으면 약 100초가 걸려 문맥을 표본으로 고른다.
+MAP_CONTEXTS = 1_000              # [3] 구간 경계를 전부 물어볼 문맥 수 (무작위 + [4]의 문맥은 항상 포함)
+MAP_RANDOM_COUNT = 1_000          # [3] 경계값 외에 넣는 무작위 질의 수
+MAP_SEED = 7
+HIST_SAMPLES = 1_000              # [4] 문맥마다 뽑는 횟수
 HIST_SEED = 12345
 P_VALUE_THRESHOLD = 1e-3          # [4] p < 0.001 이면 "분포가 다르다"
 GEN_COUNT, GEN_SEED = 1000, 2026  # [5] 임시 실행 인자 (두 프로그램 같은 seed)
@@ -202,16 +208,18 @@ def get_rows(exe: pathlib.Path) -> dict[Ctx, int]:
     return out
 
 
-def build_map_queries(ref: Reference) -> list[tuple[Ctx, int, str]]:
-    """(문맥, r, 정답 글자). 모든 구간의 시작·끝 + 무작위 r.
+def build_map_queries(ref: Reference, must: list[Ctx]) -> list[tuple[Ctx, int, str]]:
+    """(문맥, r, 정답 글자). 고른 문맥들의 모든 구간 시작·끝 + 무작위 r.
 
-    한 칸 어긋남('>' 대신 '>=')은 구간 경계에서만 드러나므로 경계를 전부 넣는다.
-    무작위 r의 정답은 bisect로 찾는다 (C의 이진 탐색 코드와는 별개의 표준 라이브러리).
+    한 칸 어긋남('>' 대신 '>=')은 구간 경계에서만 드러나므로 고른 문맥의 경계는 전부 넣는다.
+    문맥은 MAP_CONTEXTS개를 무작위로 고르고 must(= [4]의 문맥, 후보가 많은 BOS 문맥 포함)를 더한다.
+    무작위 r의 정답은 bisect로 찾는다 (C의 순차 누적 코드와는 별개의 표준 라이브러리).
     """
-    queries = [(ctx, r, b) for ctx, spans in ref.intervals.items()
-               for b, lo, hi in spans for r in (lo, hi)]
-    rng = random.Random(7)
+    rng = random.Random(MAP_SEED)
     keys = sorted(ref.intervals)
+    chosen = set(rng.sample(keys, min(MAP_CONTEXTS, len(keys)))) | set(must)
+    queries = [(ctx, r, b) for ctx in sorted(chosen)
+               for b, lo, hi in ref.intervals[ctx] for r in (lo, hi)]
     for _ in range(MAP_RANDOM_COUNT):
         ctx = rng.choice(keys)
         spans = ref.intervals[ctx]
@@ -572,7 +580,7 @@ def verify() -> bool:
     for name, cfg in PROGRAMS.items():
         exe = cfg["exe"]
         ref = Reference(words, cfg["n"])
-        queries = build_map_queries(ref)
+        queries = build_map_queries(ref, cfg["hist"])
         print(f"\n=== {name} (n={cfg['n']}) — 기준: words.txt 재계산 "
               f"n그램 {len(ref.grams):,} / 총 {sum(ref.grams.values()):,} / 문맥 {len(ref.rows):,} ===")
         if not exe.exists():
@@ -581,7 +589,7 @@ def verify() -> bool:
         report.item("[1] n그램 빈도 전수", check_dump(ref, get_dump(exe)), f"{len(ref.grams):,}개 전부 일치")
         report.item("[2] 문맥 합계", check_rows(ref, get_rows(exe)), f"{len(ref.ctx_count):,}개 문맥")
         report.item("[3] r->글자 대응", check_map(queries, get_map(exe, queries)),
-                    f"경계 {len(queries) - MAP_RANDOM_COUNT:,}개 + 무작위 {MAP_RANDOM_COUNT:,}개")
+                    f"문맥 {len({q[0] for q in queries[:-MAP_RANDOM_COUNT]}):,}개의 경계 {len(queries) - MAP_RANDOM_COUNT:,}개 + 무작위 {MAP_RANDOM_COUNT:,}개")
         for ctx in cfg["hist"]:
             fails, detail = check_hist(ref, ctx, get_hist(exe, ctx))
             report.item(f"[4] 분포 {' '.join(ctx)}", fails, detail)
@@ -624,7 +632,7 @@ def self_test() -> bool:
     ref = Reference(words, 3)
     exe = PROGRAMS["trigram"]["exe"]
     keys = PROGRAMS["trigram"]["table_keys"]
-    queries = build_map_queries(ref)
+    queries = build_map_queries(ref, PROGRAMS["trigram"]["hist"])
     dump, rows = get_dump(exe), get_rows(exe)
     answers = get_map(exe, queries)
     hist_ctx = (BOS, "사")
@@ -693,7 +701,7 @@ def self_test() -> bool:
         ("키 넘침으로 두 3그램이 합쳐짐", lambda: check_dump(ref, merged), True),
         ("단어 경계를 넘어 셈 (EOS,BOS,BOS)", lambda: check_dump(ref, dump | {(EOS, BOS, BOS): 420308}), True),
         ("문맥 합계 하나 틀림", lambda: check_rows(ref, rows | {(BOS, BOS): rows[(BOS, BOS)] - 1}), True),
-        ("이진 탐색 한 칸 어긋남 ('>=')", lambda: check_map(queries, off_by_one), True),
+        ("누적 비교 한 칸 어긋남 ('>=')", lambda: check_map(queries, off_by_one), True),
         ("(BOS,사) 후보를 균등하게 선택", lambda: check_hist(ref, hist_ctx, uniform)[0], True),
         ("빈도표 문맥 안 순서 뒤바뀜", lambda: check_table(ref, swapped(data_i, data_i + 1), keys), True),
         ("빈도표 확률 틀림", lambda: check_table(ref, table.replace("\t1.097764\n", "\t1.100000\n", 1), keys), True),
