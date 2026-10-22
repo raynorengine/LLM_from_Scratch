@@ -25,3 +25,6 @@ checkpoints/
 .idea/
 .DS_Store
 Thumbs.db
+
+# 빈도표: 용량이 커서 커밋하지 않는다. 각 step 프로그램을 인자 없이 실행하면 생성됨 (2026-10-22)
+*_table.txt
