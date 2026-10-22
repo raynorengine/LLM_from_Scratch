@@ -88,6 +88,8 @@ python step5_verify.py [--self-test | --compare]                 (verify 약 3�
 5. 커밋 안 된 작업: Step4 재작성, Step5, docs/07, education/07, CLAUDE.md, `.gitattributes`, devlog, `raw/챕터2-7` (사용자가 꺼낼 때 진행)
 
 ## 이슈/주의사항
+- **빈도표(`*_table.txt`)는 git에 없다** (2026-10-22부터 `.gitignore`). 새 PC에서는 각 step 프로그램을 인자 없이 한 번 실행해야 생기고, 그 전에는 verify [6]이 FAIL
+- **커밋 attribution 끔**: `.claude/settings.json`의 `attribution` (Co-Authored-By 안 붙음)
 - **Windows에서 C의 argv는 CP949**: 한글을 명령줄 인자로 넘기면 깨진다 → 검증 모드는 한글을 표준입력으로 받는다
 - **git push 인증 함정**: 샌드박스의 `GIT_TERMINAL_PROMPT=0`, `GCM_INTERACTIVE=never` 해제 후 `git -c credential.guiPrompt=true`로 push (`devlog/2026-10-07.md`)
 - **이 PC의 `core.autocrlf=true`**: `.gitattributes`(2026-10-22) 이전에 받은 txt는 CRLF일 수 있음 → 바이트 비교 실패의 원인. C에서 결과 파일을 읽을 땐 `\r` 제거
