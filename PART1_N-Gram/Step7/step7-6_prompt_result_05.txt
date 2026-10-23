@@ -1,0 +1,227 @@
+=== STEP 7 6단계: 프롬프트로 시작하는 6그램 문장 생성 ===
+#
+# 3-c 는 BOS 5개에서 출발했다(= 아무 말이나). 여기서는 출발 문맥을
+# 우리가 채운다(= 이 말로 시작해서 이어 봐). 프롬프트도 문장의 일부다.
+#
+# prompt	돈/NNG<W>을/JKO
+# prompt_tokens	2
+# context	BOS BOS BOS 돈/NNG 을/JKO
+# bos_left	3	(문맥에 남은 BOS. 0이면 문장 첫머리임을 모른다)
+# candidates	1	(이 문맥의 다음 토큰 후보 수. 0이면 막힘)
+# context_total	7
+# corpus_starts	7	(원본에서 이 프롬프트로 시작하는 문장 수)
+#
+# seed	1792780011
+# count	200
+# n	6
+# vocab	16920
+# sentences	64376
+# tokens	1460593
+# total_grams	1524969
+# contexts	826271
+# build_ms	331.000
+# gen_ms	0.000
+# avg_tokens	19.25
+# hit_limit	0
+# blocked	0	(첫 문맥에 후보가 없어 생성하지 못한 횟수)
+#
+1: 돈/NNG<W>을/JKO<W><S><W>두/MM<W><S><W>배/NNG<W>로/JKB<W><S><W>걸/VV<W>지/EC<W><S><W>않/VX<W>고/EC<W>도/JX<W><S><W>먹/VV<W>을/ETM<W><S><W>수/NNB<W>가/JKS<W><S><W>없/VA<W>었/EP<W>다/EF<W>./SF
+2: 돈/NNG<W>을/JKO<W><S><W>가지/VV<W>고/EC<W><S><W>있/VX<W>는데/EC<W>,/SP<W><S><W>그거/NP<W>ᆫ/JX<W><S><W>괜찮/VA<W>어/EF<W>./SF
+3: 돈/NNG<W>을/JKO<W><S><W>모으/VV<W>ᆫ다거나/EC<W>,/SP<W><S><W>즐겁/VA-I<W>게/EC<W><S><W>걸어가/VV<W>고/EC<W><S><W>있/VX<W>었/EP<W>다/EF<W>./SF
+4: 돈/NNG<W>을/JKO<W><S><W>가지/VV<W>고/EC<W><S><W>계시/VX<W>ᆸ니다/EF<W>./SF
+5: 돈/NNG<W>을/JKO<W><S><W>모으/VV<W>ᆫ다거나/EC<W>,/SP<W><S><W>즐겁/VA-I<W>게/EC<W><S><W>지내/VV<W>었/EP<W>다/EF<W>./SF
+6: 돈/NNG<W>을/JKO<W><S><W>두/MM<W><S><W>배/NNG<W>로/JKB<W><S><W>하/VV<W>ᆫ다/EF<W>./SF
+7: 돈/NNG<W>을/JKO<W><S><W>모으/VV<W>ᆫ다거나/EC<W>,/SP<W><S><W>즐겁/VA-I<W>게/EC<W><S><W>걸어가/VV<W>고/EC<W><S><W>있/VX<W>었/EP<W>다/EF<W>./SF
+8: 돈/NNG<W>을/JKO<W><S><W>바꾸/VV<W>고/EC<W><S><W>싶/VX<W>으니까/EC<W><S><W>말/NNG<W>이/VCP<W>야/EF<W>./SF
+9: 돈/NNG<W>을/JKO<W><S><W>몽땅/MAG<W><S><W>따/VV<W>게/EC<W><S><W>되/VV<W>었/EP<W>다/EF<W>./SF
+10: 돈/NNG<W>을/JKO<W><S><W>모으/VV<W>ᆫ다거나/EC<W>,/SP<W><S><W>즐겁/VA-I<W>게/EC<W><S><W>지내/VV<W>었/EP<W>다/EF<W>./SF
+11: 돈/NNG<W>을/JKO<W><S><W>몽땅/MAG<W><S><W>따/VV<W>게/EC<W><S><W>되/VV<W>었/EP<W>다/EF<W>./SF
+12: 돈/NNG<W>을/JKO<W><S><W>주/VV<W>지/EC<W><S><W>않/VX<W>으면/EC<W><S><W>안/MAG<W><S><W>되/VV<W>ᆯ/ETM<W><S><W>리/NNB<W>가/JKS<W><S><W>없/VA<W>어/EF<W>./SF
+13: 돈/NNG<W>을/JKO<W><S><W>몽땅/MAG<W><S><W>예금/NNG<W>하/XSV<W>어/EC<W><S><W>놓/VX<W>고/EC<W><S><W>그때/NNG<W>부터/JX<W><S><W>계속/MAG<W><S><W>지구/NNG<W><S><W>시간/NNG<W>에/JKB<W><S><W>의하/VV<W>고/EC<W><S><W>있/VX<W>지요/EF<W>?/SF
+14: 돈/NNG<W>을/JKO<W><S><W>몽땅/MAG<W><S><W>따/VV<W>게/EC<W><S><W>되/VV<W>었/EP<W>다/EF<W>./SF
+15: 돈/NNG<W>을/JKO<W><S><W>바꾸/VV<W>고/EC<W><S><W>싶/VX<W>으니까/EC<W><S><W>말/NNG<W>이/VCP<W>야/EF<W>./SF
+16: 돈/NNG<W>을/JKO<W><S><W>두/MM<W><S><W>배/NNG<W>로/JKB<W><S><W>하/VV<W>ᆫ다/EF<W>./SF
+17: 돈/NNG<W>을/JKO<W><S><W>주/VV<W>지/EC<W><S><W>않/VX<W>고/EC<W><S><W>자기/NP<W>들/XSN<W>만/JX<W><S><W>생각/NNG<W>하/XSV<W>는/ETM<W><S><W>거/NNB<W>이/VCP<W>ᆫ가/EF<W>?/SF
+18: 돈/NNG<W>을/JKO<W><S><W>바꾸/VV<W>고/EC<W><S><W>싶/VX<W>으니까/EC<W><S><W>말/NNG<W>이/VCP<W>야/EF<W>./SF
+19: 돈/NNG<W>을/JKO<W><S><W>주/VV<W>지/EC<W><S><W>않/VX<W>으면/EC<W><S><W>안/MAG<W><S><W>되/VV<W>ᆸ니다/EF<W>./SF
+20: 돈/NNG<W>을/JKO<W><S><W>두/MM<W><S><W>배/NNG<W>로/JKB<W><S><W>증가/NNG<W>하/XSV<W>었/EP<W>던/ETM<W><S><W>것/NNB<W>이/VCP<W>지요/EF<W>./SF
+21: 돈/NNG<W>을/JKO<W><S><W>가지/VV<W>고/EC<W><S><W>있/VX<W>지/EC<W><S><W>않/VX<W>습니다/EF<W>./SF
+22: 돈/NNG<W>을/JKO<W><S><W>바꾸/VV<W>고/EC<W><S><W>싶/VX<W>으니까/EC<W><S><W>말/NNG<W>이/VCP<W>야/EF<W>./SF
+23: 돈/NNG<W>을/JKO<W><S><W>두/MM<W><S><W>배/NNG<W>로/JKB<W><S><W>걸/VV<W>지/EC<W><S><W>않/VX<W>고/EC<W>도/JX<W><S><W>지내/VV<W>ᆯ/ETM<W><S><W>수/NNB<W><S><W>없/VA<W>게/EC<W><S><W>되/VV<W>었/EP<W>어요/EF<W>./SF
+24: 돈/NNG<W>을/JKO<W><S><W>많이/MAG<W><S><W>가지/VV<W>고/EC<W><S><W>있/VX<W>어요/EF<W>!/SF
+25: 돈/NNG<W>을/JKO<W><S><W>주/VV<W>지/EC<W><S><W>않/VX<W>고/EC<W><S><W>조용/XR<W>하/XSA<W>었/EP<W>다/EF<W>./SF
+26: 돈/NNG<W>을/JKO<W><S><W>가지/VV<W>고/EC<W><S><W>있/VX<W>다는/ETM<W><S><W>것/NNB<W>을/JKO<W><S><W>깨닫/VV-I<W>고/EC<W>,/SP<W><S><W>그/MM<W><S><W>곳/NNG<W>에서/JKB<W><S><W>우주선/NNG<W><S><W>건조/NNG<W><S><W>공장/NNG<W>,/SP<W><S><W>발사대/NNG<W>,/SP<W><S><W>기숙사/NNG<W><S><W>등/NNB<W>에/JKB<W><S><W>관하/VV<W>ᆫ/ETM<W><S><W>논문/NNG<W>이/JKS<W><S><W>다수/NNG<W><S><W>있/VV<W>다/EF<W>./SF
+27: 돈/NNG<W>을/JKO<W><S><W>주/VV<W>지/EC<W><S><W>않/VX<W>었/EP<W>으므로/EC<W><S><W>옥상/NNG<W>에서/JKB<W><S><W>빗물/NNG<W>을/JKO<W><S><W>모으/VV<W>어/EC<W><S><W>놓/VX<W>었/EP<W>습니다/EF<W>./SF
+28: 돈/NNG<W>을/JKO<W><S><W>몽땅/MAG<W><S><W>예금/NNG<W>하/XSV<W>어/EC<W><S><W>놓/VX<W>고/EC<W><S><W>그것/NP<W>을/JKO<W><S><W>머신/NNG<W><S><W>X/SL<W>의/JKG<W><S><W>탓/NNG<W>으로/JKB<W><S><W>몰/VV<W>ᆯ/ETM<W><S><W>작정/NNG<W>이/VCP<W>ᆸ니다/EF<W>./SF
+29: 돈/NNG<W>을/JKO<W><S><W>모으/VV<W>ᆫ다거나/EC<W>,/SP<W><S><W>즐겁/VA-I<W>게/EC<W><S><W>걸어가/VV<W>고/EC<W><S><W>있/VX<W>었/EP<W>다/EF<W>./SF
+30: 돈/NNG<W>을/JKO<W><S><W>두/MM<W><S><W>배/NNG<W>로/JKB<W><S><W>하/VV<W>ᆫ다/EF<W>./SF
+31: 돈/NNG<W>을/JKO<W><S><W>두/MM<W><S><W>배/NNG<W>로/JKB<W><S><W>증가/NNG<W>하/XSV<W>었/EP<W>던/ETM<W><S><W>것/NNB<W>이/VCP<W>다/EF<W>./SF
+32: 돈/NNG<W>을/JKO<W><S><W>바꾸/VV<W>고/EC<W><S><W>싶/VX<W>으니까/EC<W><S><W>말/NNG<W>이/VCP<W>야/EF<W>./SF
+33: 돈/NNG<W>을/JKO<W><S><W>바꾸/VV<W>고/EC<W><S><W>싶/VX<W>으니까/EC<W><S><W>말/NNG<W>이/VCP<W>야/EF<W>./SF
+34: 돈/NNG<W>을/JKO<W><S><W>몽땅/MAG<W><S><W>예금/NNG<W>하/XSV<W>어/EC<W><S><W>놓/VX<W>고/EC<W>는/JX<W><S><W>막상/MAG<W><S><W>그때/NNG<W>가/JKC<W><S><W>되/VV<W>면/EC<W><S><W>자동차/NNG<W>나/JC<W><S><W>기차/NNG<W>를/JKO<W><S><W>타/VV<W>고/EC<W><S><W>핸드론/NNP<W><S><W>박사/NNG<W>의/JKG<W><S><W>아파트/NNG<W>로/JKB<W><S><W>직행/NNG<W>하/XSV<W>었/EP<W>다/EF<W>./SF
+35: 돈/NNG<W>을/JKO<W><S><W>바꾸/VV<W>고/EC<W><S><W>싶/VX<W>으니까/EC<W><S><W>말/NNG<W>이/VCP<W>야/EF<W>./SF
+36: 돈/NNG<W>을/JKO<W><S><W>바꾸/VV<W>고/EC<W><S><W>싶/VX<W>으니까/EC<W><S><W>말/NNG<W>이/VCP<W>야/EF<W>./SF
+37: 돈/NNG<W>을/JKO<W><S><W>몽땅/MAG<W><S><W>예금/NNG<W>하/XSV<W>어/EC<W><S><W>놓/VX<W>고/EC<W><S><W>말/VV<W>야/EF<W>./SF
+38: 돈/NNG<W>을/JKO<W><S><W>몽땅/MAG<W><S><W>따/VV<W>게/EC<W><S><W>되/VV<W>었/EP<W>다/EF<W>./SF
+39: 돈/NNG<W>을/JKO<W><S><W>모으/VV<W>ᆫ다거나/EC<W>,/SP<W><S><W>즐겁/VA-I<W>게/EC<W><S><W>지내/VV<W>었/EP<W>다/EF<W>./SF
+40: 돈/NNG<W>을/JKO<W><S><W>많이/MAG<W><S><W>내/VV<W>고/EC<W><S><W>입원/NNG<W>시키/XSV<W>러/EC<W><S><W>오/VV<W>ᆫ다는/ETM<W><S><W>거/NNB<W>이/VCP<W>다/EF<W>./SF
+41: 돈/NNG<W>을/JKO<W><S><W>많이/MAG<W><S><W>내/VV<W>고/EC<W><S><W>입원/NNG<W>시키/XSV<W>러/EC<W><S><W>오/VV<W>ᆫ다는/ETM<W><S><W>거/NNB<W>이/VCP<W>ᆫ가/EF<W>?/SF
+42: 돈/NNG<W>을/JKO<W><S><W>가지/VV<W>고/EC<W><S><W>있/VX<W>었/EP<W>던/ETM<W><S><W>것/NNB<W>이/VCP<W>다/EF<W>./SF
+43: 돈/NNG<W>을/JKO<W><S><W>두/MM<W><S><W>배/NNG<W>로/JKB<W><S><W>걸/VV<W>고/EC<W><S><W>하/VV<W>기/ETN<W>로/JKB<W><S><W>마음먹/VV<W>었/EP<W>습니다/EF<W>./SF
+44: 돈/NNG<W>을/JKO<W><S><W>두/MM<W><S><W>배/NNG<W>로/JKB<W><S><W>하/VV<W>ᆫ다/EF<W>./SF
+45: 돈/NNG<W>을/JKO<W><S><W>많이/MAG<W><S><W>가지/VV<W>고/EC<W><S><W>있/VX<W>다/EF<W>./SF
+46: 돈/NNG<W>을/JKO<W><S><W>많이/MAG<W><S><W>벌/VV<W>ᆫ/ETM<W><S><W>일/NNG<W>도/JX<W><S><W>없/VA<W>게/EC<W><S><W>되/VV<W>ᆫ다/EF<W>./SF
+47: 돈/NNG<W>을/JKO<W><S><W>몽땅/MAG<W><S><W>따/VV<W>게/EC<W><S><W>되/VV<W>었/EP<W>다/EF<W>./SF
+48: 돈/NNG<W>을/JKO<W><S><W>몽땅/MAG<W><S><W>따/VV<W>게/EC<W><S><W>되/VV<W>었/EP<W>다/EF<W>./SF
+49: 돈/NNG<W>을/JKO<W><S><W>두/MM<W><S><W>배/NNG<W>로/JKB<W><S><W>걸/VV<W>고/EC<W><S><W>하/VV<W>기/ETN<W>로/JKB<W><S><W>하/VV<W>었/EP<W>다/EF<W>./SF
+50: 돈/NNG<W>을/JKO<W><S><W>모으/VV<W>ᆫ다거나/EC<W>,/SP<W><S><W>즐겁/VA-I<W>게/EC<W><S><W>지내/VV<W>기/ETN<W>로/JKB<W><S><W>하/VV<W>었었/EP<W>다/EF<W>./SF
+51: 돈/NNG<W>을/JKO<W><S><W>바꾸/VV<W>고/EC<W><S><W>싶/VX<W>으니까/EC<W><S><W>말/NNG<W>이/VCP<W>야/EF<W>./SF
+52: 돈/NNG<W>을/JKO<W><S><W>몽땅/MAG<W><S><W>예금/NNG<W>하/XSV<W>어/EC<W><S><W>놓/VX<W>고/EC<W><S><W>가/VV<W>ᆫ/ETM<W><S><W>거/NNB<W>이/VCP<W>ᆸ니까/EF<W>?/SF
+53: 돈/NNG<W>을/JKO<W><S><W>많이/MAG<W><S><W>내/VV<W>고/EC<W><S><W>입원/NNG<W>시키/XSV<W>러/EC<W><S><W>오/VV<W>ᆫ다는/ETM<W><S><W>거/NNB<W>이/VCP<W>ᆫ가/EF<W>?/SF
+54: 돈/NNG<W>을/JKO<W><S><W>바꾸/VV<W>고/EC<W><S><W>싶/VX<W>으니까/EC<W><S><W>말/NNG<W>이/VCP<W>야/EF<W>./SF
+55: 돈/NNG<W>을/JKO<W><S><W>많이/MAG<W><S><W>벌/VV<W>ᆫ/ETM<W><S><W>일/NNG<W>도/JX<W><S><W>있/VV<W>을지/EC<W><S><W>모르/VV<W>ᆫ다/EF<W>./SF
+56: 돈/NNG<W>을/JKO<W><S><W>가지/VV<W>고/EC<W><S><W>있/VX<W>던/ETM<W><S><W>티모시/NNP<W>가/JKS<W><S><W>말/NNG<W>하/XSV<W>었/EP<W>다/EF<W>./SF
+57: 돈/NNG<W>을/JKO<W><S><W>몽땅/MAG<W><S><W>예금/NNG<W>하/XSV<W>어/EC<W><S><W>놓/VX<W>고/EC<W><S><W>가/VV<W>는/ETM<W><S><W>펄럭펄럭/MAG<W>에/JKB<W><S><W>닿/VV<W>지/EC<W><S><W>않/VX<W>었/EP<W>다/EF<W>./SF
+58: 돈/NNG<W>을/JKO<W><S><W>가지/VV<W>고/EC<W><S><W>있/VX<W>습니다/EF<W>./SF
+59: 돈/NNG<W>을/JKO<W><S><W>두/MM<W><S><W>배/NNG<W>로/JKB<W><S><W>걸/VV<W>지/EC<W><S><W>않/VX<W>겠/EP<W>어/EF<W>?/SF
+60: 돈/NNG<W>을/JKO<W><S><W>몽땅/MAG<W><S><W>따/VV<W>게/EC<W><S><W>되/VV<W>었/EP<W>다/EF<W>./SF
+61: 돈/NNG<W>을/JKO<W><S><W>바꾸/VV<W>고/EC<W><S><W>싶/VX<W>으니까/EC<W><S><W>말/NNG<W>이/VCP<W>야/EF<W>./SF
+62: 돈/NNG<W>을/JKO<W><S><W>두/MM<W><S><W>배/NNG<W>로/JKB<W><S><W>걸/VV<W>고/EC<W><S><W>하/VV<W>기/ETN<W>로/JKB<W><S><W>하/VV<W>었/EP<W>다/EF<W>./SF
+63: 돈/NNG<W>을/JKO<W><S><W>모으/VV<W>ᆫ다거나/EC<W>,/SP<W><S><W>즐겁/VA-I<W>게/EC<W><S><W>지내/VV<W>기/ETN<W>로/JKB<W><S><W>하/VV<W>었/EP<W>다/EF<W>./SF
+64: 돈/NNG<W>을/JKO<W><S><W>가지/VV<W>고/EC<W><S><W>있/VX<W>으므로/EC<W><S><W>보이/VV<W>지/EC<W><S><W>않/VX<W>게/EC<W><S><W>되/VV<W>자/EC<W>,/SP<W><S><W>나라/NNG<W>마다/JX<W><S><W>이해/NNG<W><S><W>관계/NNG<W>가/JKS<W><S><W>생기/VV<W>게/EC<W><S><W>되/VV<W>었/EP<W>다/EF<W>./SF
+65: 돈/NNG<W>을/JKO<W><S><W>모으/VV<W>ᆫ다거나/EC<W>,/SP<W><S><W>즐겁/VA-I<W>게/EC<W><S><W>걸어가/VV<W>고/EC<W><S><W>있/VX<W>었/EP<W>다/EF<W>./SF
+66: 돈/NNG<W>을/JKO<W><S><W>두/MM<W><S><W>배/NNG<W>로/JKB<W><S><W>하/VV<W>ᆫ다/EF<W>./SF
+67: 돈/NNG<W>을/JKO<W><S><W>두/MM<W><S><W>배/NNG<W>로/JKB<W><S><W>하/VV<W>ᆫ다/EF<W>./SF
+68: 돈/NNG<W>을/JKO<W><S><W>주/VV<W>지/EC<W><S><W>않/VX<W>겠/EP<W>어/EF<W>./SF
+69: 돈/NNG<W>을/JKO<W><S><W>모으/VV<W>ᆫ다거나/EC<W>,/SP<W><S><W>즐겁/VA-I<W>게/EC<W><S><W>걸어가/VV<W>고/EC<W><S><W>있/VX<W>었/EP<W>다/EF<W>./SF
+70: 돈/NNG<W>을/JKO<W><S><W>가지/VV<W>고/EC<W><S><W>케룬/NNP<W><S><W>교수/NNG<W>에게/JKB<W><S><W>취직/NNG<W>을/JKO<W><S><W>부탁/NNG<W>하/XSV<W>러/EC<W><S><W>오/VV<W>었/EP<W>는데/EC<W>,/SP<W><S><W>우리/NP<W><S><W>지방/NNG<W>에/JKB<W>는/JX<W><S><W>새롭/VA-I<W>은/ETM<W><S><W>두/MM<W><S><W>개/NNB<W>의/JKG<W><S><W>천문학/NNG<W>이/JKS<W><S><W>얼마나/MAG<W><S><W>정확/NNG<W>하/XSA<W>ᆫ가/EC<W>를/JKO<W><S><W>알/VV<W>고/EC<W><S><W>나/VX<W>자/EC<W><S><W>나/NP<W>의/JKG<W><S><W>눈앞/NNG<W>에/JKB<W>는/JX<W><S><W>송풍기/NNG<W>의/JKG<W><S><W>크/VA<W>ᆫ/ETM<W><S><W>돔/NNG<W>이/VCP<W>ᆫ데요/EF<W>?/SF
+71: 돈/NNG<W>을/JKO<W><S><W>가지/VV<W>고/EC<W><S><W>있/VX<W>어/EF<W>./SF
+72: 돈/NNG<W>을/JKO<W><S><W>몽땅/MAG<W><S><W>따/VV<W>게/EC<W><S><W>되/VV<W>었/EP<W>다/EF<W>./SF
+73: 돈/NNG<W>을/JKO<W><S><W>몽땅/MAG<W><S><W>예금/NNG<W>하/XSV<W>어/EC<W><S><W>놓/VX<W>고/EC<W><S><W>부두/NNG<W><S><W>근처/NNG<W><S><W>바다/NNG<W>에서/JKB<W><S><W>헤엄/NNG<W>을/JKO<W><S><W>치/VV<W>는/ETM<W><S><W>무섭/VA-I<W>은/ETM<W><S><W>무기/NNG<W>로/JKB<W><S><W>샤니아인/NNG<W>들/XSN<W>을/JKO<W><S><W>즐겁/VA-I<W>게/EC<W><S><W>하/VX<W>어/EC<W><S><W>주/VX<W>는/ETM<W><S><W>후/NNG<W>의/NNG<W>를/JKO<W><S><W>베풀/VV<W>어/EC<W>주/VX<W>어도/EC<W><S><W>언제/MAG<W><S><W>어느/MM<W><S><W>때/NNG<W><S><W>놈/NNB<W>들/XSN<W>의/JKG<W><S><W>포로/NNG<W>가/JKC<W><S><W>되/VV<W>어/EC<W><S><W>있/VX<W>었/EP<W>다/EF<W>./SF
+74: 돈/NNG<W>을/JKO<W><S><W>두/MM<W><S><W>배/NNG<W>로/JKB<W><S><W>하/VV<W>ᆫ다/EF<W>./SF
+75: 돈/NNG<W>을/JKO<W><S><W>주/VV<W>지/EC<W><S><W>않/VX<W>으면/EC<W><S><W>아무/MM<W><S><W>소용/NNG<W>없/VA<W>었/EP<W>다/EF<W>./SF
+76: 돈/NNG<W>을/JKO<W><S><W>가지/VV<W>고/EC<W><S><W>오/VV<W>라/EF<W>./SF
+77: 돈/NNG<W>을/JKO<W><S><W>가지/VV<W>고/EC<W><S><W>있/VX<W>다는/ETM<W><S><W>것/NNB<W>이/VCP<W>다/EF<W>./SF
+78: 돈/NNG<W>을/JKO<W><S><W>많이/MAG<W><S><W>벌/VV<W>ᆫ/ETM<W><S><W>일/NNG<W>도/JX<W><S><W>많/VA<W>지만/EC<W>,/SP<W><S><W>12/SN<W>시간/NNB<W><S><W>계속/MAG<W><S><W>입/VV-R<W>고/EC<W><S><W>있/VX<W>었/EP<W>습니다/EF<W>./SF
+79: 돈/NNG<W>을/JKO<W><S><W>몽땅/MAG<W><S><W>예금/NNG<W>하/XSV<W>어/EC<W><S><W>놓/VX<W>고/EC<W><S><W>그/MM<W><S><W>소란/NNG<W><S><W>속/NNG<W>에서/JKB<W><S><W>로봇/NNG<W>을/JKO<W><S><W>때리/VV<W>어/EC<W>부수/VV<W>려고/EC<W><S><W>하/VV<W>는/ETM<W><S><W>여자/NNG<W>이/VCP<W>야/EF<W>./SF
+80: 돈/NNG<W>을/JKO<W><S><W>가지/VV<W>고/EC<W><S><W>있/VX<W>는/ETM<W><S><W>것/NNB<W>은/JX<W><S><W>위태/XR<W>롭/XSA-I<W>지/EC<W><S><W>않/VX<W>습니까/EF<W>?/SF
+81: 돈/NNG<W>을/JKO<W><S><W>두/MM<W><S><W>배/NNG<W>로/JKB<W><S><W>걸/VV<W>지/EC<W><S><W>않/VX<W>고/EC<W><S><W>시로오/NNP<W>의/JKG<W><S><W>손/NNG<W>을/JKO<W><S><W>누르/VV<W>었/EP<W>다/EF<W>./SF
+82: 돈/NNG<W>을/JKO<W><S><W>가지/VV<W>고/EC<W><S><W>있/VX<W>는/ETM<W><S><W>것/NNB<W><S><W>같이/MAG<W><S><W>보이/VV<W>었/EP<W>다/EF<W>./SF
+83: 돈/NNG<W>을/JKO<W><S><W>주/VV<W>지/EC<W><S><W>않/VX<W>겠/EP<W>어/EF<W>./SF
+84: 돈/NNG<W>을/JKO<W><S><W>주/VV<W>지/EC<W><S><W>않/VX<W>었/EP<W>으므로/EC<W><S><W>아리스/NNP<W>는/JX<W><S><W>안전/NNG<W>하/XSA<W>ᆯ/ETM<W><S><W>만큼/NNB<W><S><W>기계/NNG<W>류/XSN<W>에/JKB<W><S><W>열중/NNG<W>하/XSV<W>어/EC<W><S><W>오토바이/NNG<W><S><W>같/VA<W>은/ETM<W><S><W>것/NNB<W>을/JKO<W><S><W>달/VV<W>고/EC<W><S><W>있/VX<W>었/EP<W>다/EF<W>./SF
+85: 돈/NNG<W>을/JKO<W><S><W>주/VV<W>지/EC<W><S><W>않/VX<W>느니라/EF<W>./SF
+86: 돈/NNG<W>을/JKO<W><S><W>많이/MAG<W><S><W>벌/VV<W>ᆫ/ETM<W><S><W>일/NNG<W>도/JX<W><S><W>아니/VCN<W>ᆸ니다/EF<W>./SF
+87: 돈/NNG<W>을/JKO<W><S><W>가지/VV<W>고/EC<W><S><W>있/VX<W>니/EC<W>?/SF
+88: 돈/NNG<W>을/JKO<W><S><W>모으/VV<W>ᆫ다거나/EC<W>,/SP<W><S><W>즐겁/VA-I<W>게/EC<W><S><W>지내/VV<W>기/ETN<W>로/JKB<W><S><W>하/VV<W>자/EF<W>./SF
+89: 돈/NNG<W>을/JKO<W><S><W>몽땅/MAG<W><S><W>예금/NNG<W>하/XSV<W>어/EC<W><S><W>놓/VX<W>고/EC<W><S><W>휴식/NNG<W>을/JKO<W><S><W>위하/VV<W>어/EC<W><S><W>쓰/VV<W>어/EC<W>달/VX<W>라고/EC<W>는/JX<W><S><W>하/VV<W>지/EC<W><S><W>말/VX<W>라고/EC<W><S><W>이르/VV-R<W>어/EC<W><S><W>두/VX<W>ᆫ/ETM<W><S><W>그/MM<W><S><W>조종석/NNG<W>으로/JKB<W><S><W>날/VV<W>어/EC<W><S><W>들어가/VV<W>었/EP<W>다/EF<W>./SF
+90: 돈/NNG<W>을/JKO<W><S><W>모으/VV<W>ᆫ다거나/EC<W>,/SP<W><S><W>즐겁/VA-I<W>게/EC<W><S><W>걸어가/VV<W>고/EC<W><S><W>있/VX<W>었/EP<W>다/EF<W>./SF
+91: 돈/NNG<W>을/JKO<W><S><W>주/VV<W>지/EC<W><S><W>않/VX<W>고/EC<W>,/SP<W><S><W>너희/NP<W>들/XSN<W>을/JKO<W><S><W>형무소/NNG<W>에/JKB<W><S><W>집어넣/VV<W>고/EC<W><S><W>셔츠/NNG<W>를/JKO<W><S><W>입/VV-R<W>고/EC<W><S><W>보석/NNG<W>을/JKO<W><S><W>듬뿍/MAG<W><S><W>달/VV<W>고/EC<W><S><W>있/VX<W>는/ETM<W><S><W>것/NNB<W>이/VCP<W>ᆸ니다/EF<W>./SF
+92: 돈/NNG<W>을/JKO<W><S><W>많이/MAG<W><S><W>내/VV<W>고/EC<W><S><W>입원/NNG<W>시키/XSV<W>러/EC<W><S><W>오/VV<W>ᆫ다는/ETM<W><S><W>거/NNB<W>이/VCP<W>다/EF<W>./SF
+93: 돈/NNG<W>을/JKO<W><S><W>주/VV<W>지/EC<W><S><W>않/VX<W>느니라/EF<W>./SF
+94: 돈/NNG<W>을/JKO<W><S><W>가지/VV<W>고/EC<W><S><W>있/VX<W>니/EC<W>?/SF
+95: 돈/NNG<W>을/JKO<W><S><W>가지/VV<W>고/EC<W><S><W>있/VX<W>지요/EF<W>./SF
+96: 돈/NNG<W>을/JKO<W><S><W>많이/MAG<W><S><W>내/VV<W>고/EC<W><S><W>입원/NNG<W>시키/XSV<W>러/EC<W><S><W>오/VV<W>ᆫ다는/ETM<W><S><W>거/NNB<W>이/VCP<W>ᆫ가/EF<W>?/SF
+97: 돈/NNG<W>을/JKO<W><S><W>바꾸/VV<W>고/EC<W><S><W>싶/VX<W>으니까/EC<W><S><W>말/NNG<W>이/VCP<W>야/EF<W>./SF
+98: 돈/NNG<W>을/JKO<W><S><W>주/VV<W>지/EC<W><S><W>않/VX<W>느니라/EF<W>./SF
+99: 돈/NNG<W>을/JKO<W><S><W>가지/VV<W>고/EC<W><S><W>있/VX<W>지/EC<W><S><W>않/VX<W>었/EP<W>다/EF<W>./SF
+100: 돈/NNG<W>을/JKO<W><S><W>모으/VV<W>ᆫ다거나/EC<W>,/SP<W><S><W>즐겁/VA-I<W>게/EC<W><S><W>걸어가/VV<W>고/EC<W><S><W>있/VX<W>는/ETM<W><S><W>힘/NNG<W>을/JKO<W><S><W>가지/VV<W>고/EC<W><S><W>있/VX<W>습니다/EF<W>./SF
+101: 돈/NNG<W>을/JKO<W><S><W>주/VV<W>지/EC<W><S><W>않/VX<W>는다/EF<W>./SF
+102: 돈/NNG<W>을/JKO<W><S><W>주/VV<W>지/EC<W><S><W>않/VX<W>느냐/EC<W><S><W>하/VV<W>고/EC<W><S><W>잔소리/NNG<W>를/JKO<W><S><W>하/VV<W>ᆯ/ETM<W><S><W>때/NNG<W>까지/JX<W><S><W>숨/NNG<W>도/JX<W><S><W>크/VA<W>게/EC<W><S><W>변화/NNG<W>되/XSV<W>어/EC<W><S><W>국가/NNG<W>도/JX<W><S><W>없/VA<W>고/EC<W><S><W>그렇/VA-I<W>다고/EC<W><S><W>가만히/MAG<W><S><W>있/VV<W>는/ETM<W><S><W>것/NNB<W>은/JX<W><S><W>해안/NNG<W>에서/JKB<W><S><W>하얗/VA-I<W>ᆫ/ETM<W><S><W>작업복/NNG<W>을/JKO<W><S><W>입/VV-R<W>은/ETM<W><S><W>의사/NNG<W>처럼/JKB<W><S><W>보이/VV<W>는/ETM<W><S><W>것/NNB<W>은/JX<W><S><W>그만두/VV<W>어요/EF<W>./SF
+103: 돈/NNG<W>을/JKO<W><S><W>몽땅/MAG<W><S><W>따/VV<W>게/EC<W><S><W>되/VV<W>었/EP<W>다/EF<W>./SF
+104: 돈/NNG<W>을/JKO<W><S><W>많이/MAG<W><S><W>내/VV<W>고/EC<W><S><W>입원/NNG<W>시키/XSV<W>러/EC<W><S><W>오/VV<W>ᆫ다는/ETM<W><S><W>거/NNB<W>이/VCP<W>다/EF<W>./SF
+105: 돈/NNG<W>을/JKO<W><S><W>바꾸/VV<W>고/EC<W><S><W>싶/VX<W>으니까/EC<W><S><W>말/NNG<W>이/VCP<W>야/EF<W>./SF
+106: 돈/NNG<W>을/JKO<W><S><W>많이/MAG<W><S><W>내/VV<W>고/EC<W><S><W>입원/NNG<W>시키/XSV<W>러/EC<W><S><W>오/VV<W>ᆫ다는/ETM<W><S><W>거/NNB<W>이/VCP<W>ᆫ가/EF<W>?/SF
+107: 돈/NNG<W>을/JKO<W><S><W>두/MM<W><S><W>배/NNG<W>로/JKB<W><S><W>증가/NNG<W>하/XSV<W>었/EP<W>던/ETM<W><S><W>것/NNB<W>이/VCP<W>다/EF<W>./SF
+108: 돈/NNG<W>을/JKO<W><S><W>두/MM<W><S><W>배/NNG<W>로/JKB<W><S><W>걸/VV<W>고/EC<W><S><W>하/VV<W>기/ETN<W>로/JKB<W><S><W>하/VV<W>지/EF<W>./SF
+109: 돈/NNG<W>을/JKO<W><S><W>몽땅/MAG<W><S><W>따/VV<W>게/EC<W><S><W>되/VV<W>었/EP<W>다/EF<W>./SF
+110: 돈/NNG<W>을/JKO<W><S><W>모으/VV<W>ᆫ다거나/EC<W>,/SP<W><S><W>즐겁/VA-I<W>게/EC<W><S><W>지내/VV<W>었/EP<W>다/EF<W>./SF
+111: 돈/NNG<W>을/JKO<W><S><W>많이/MAG<W><S><W>가지/VV<W>고/EC<W><S><W>다니/VV<W>ᆸ니다/EF<W>./SF
+112: 돈/NNG<W>을/JKO<W><S><W>가지/VV<W>고/EC<W><S><W>태어나/VV<W>ᆫ다는/ETM<W><S><W>생각/NNG<W>을/JKO<W><S><W>하/VV<W>나/EF<W>?/SF
+113: 돈/NNG<W>을/JKO<W><S><W>많이/MAG<W><S><W>벌/VV<W>ᆫ/ETM<W><S><W>일/NNG<W>도/JX<W><S><W>있/VV<W>는/ETM<W><S><W>거/NNB<W>이/VCP<W>야/EF<W>./SF
+114: 돈/NNG<W>을/JKO<W><S><W>많이/MAG<W><S><W>가지/VV<W>ᆫ/ETM<W><S><W>젊/VA<W>은/ETM<W><S><W>과학자/NNG<W><S><W>시튼/NNP<W>,/SP<W><S><W>시튼/NNP<W>의/JKG<W><S><W>최대/NNG<W>의/JKG<W><S><W>적/NNG<W>이/JKC<W><S><W>되/VV<W>어/EC<W>버리/VX<W>ᆫ/ETM<W><S><W>거/NNB<W>이/VCP<W>야/EF<W>./SF
+115: 돈/NNG<W>을/JKO<W><S><W>많이/MAG<W><S><W>내/VV<W>고/EC<W><S><W>입원/NNG<W>시키/XSV<W>러/EC<W><S><W>오/VV<W>ᆫ다는/ETM<W><S><W>거/NNB<W>이/VCP<W>다/EF<W>./SF
+116: 돈/NNG<W>을/JKO<W><S><W>가지/VV<W>고/EC<W><S><W>있/VX<W>다고/EC<W><S><W>하/VV<W>었/EP<W>잖아/EF<W>./SF
+117: 돈/NNG<W>을/JKO<W><S><W>많이/MAG<W><S><W>내/VV<W>고/EC<W><S><W>입원/NNG<W>시키/XSV<W>러/EC<W><S><W>오/VV<W>ᆫ다는/ETM<W><S><W>거/NNB<W>이/VCP<W>다/EF<W>./SF
+118: 돈/NNG<W>을/JKO<W><S><W>가지/VV<W>고/EC<W><S><W>상급/NNG<W>생/XSN<W>보다/JKB<W><S><W>어렵/VA-I<W>은/ETM<W><S><W>연습/NNG<W>곡/NNG<W>을/JKO<W><S><W>훌륭/XR<W>하/XSA<W>게/EC<W><S><W>일/NNG<W>하/XSV<W>고/EC<W><S><W>있/VX<W>었/EP<W>는데/EF<W>./SF
+119: 돈/NNG<W>을/JKO<W><S><W>모으/VV<W>ᆫ다거나/EC<W>,/SP<W><S><W>즐겁/VA-I<W>게/EC<W><S><W>걸어가/VV<W>고/EC<W><S><W>있/VX<W>을/ETM<W><S><W>때/NNG<W>가/JKC<W><S><W>아니/VCN<W>었/EP<W>다/EF<W>./SF
+120: 돈/NNG<W>을/JKO<W><S><W>몽땅/MAG<W><S><W>예금/NNG<W>하/XSV<W>어/EC<W><S><W>놓/VX<W>고/EC<W><S><W>있/VX<W>으며/EC<W>,/SP<W><S><W>이번/NNG<W><S><W>여행/NNG<W>도/JX<W><S><W>교수/NNG<W>의/JKG<W><S><W>말/NNG<W>이/VCP<W>다/EF<W>./SF
+121: 돈/NNG<W>을/JKO<W><S><W>두/MM<W><S><W>배/NNG<W>로/JKB<W><S><W>하/VV<W>ᆫ다/EF<W>./SF
+122: 돈/NNG<W>을/JKO<W><S><W>주/VV<W>지/EC<W><S><W>않/VX<W>어도/EC<W><S><W>마음/NNG<W>과/JC<W><S><W>마음/NNG<W>으로서/JKB<W><S><W>이야기/NNG<W>를/JKO<W><S><W>걸어오/VV<W>는/ETM<W><S><W>소리/NNG<W>이/VCP<W>었/EP<W>습니다/EF<W>./SF
+123: 돈/NNG<W>을/JKO<W><S><W>바꾸/VV<W>고/EC<W><S><W>싶/VX<W>으니까/EC<W><S><W>말/NNG<W>이/VCP<W>야/EF<W>./SF
+124: 돈/NNG<W>을/JKO<W><S><W>모으/VV<W>ᆫ다거나/EC<W>,/SP<W><S><W>즐겁/VA-I<W>게/EC<W><S><W>지내/VV<W>었/EP<W>다/EF<W>./SF
+125: 돈/NNG<W>을/JKO<W><S><W>바꾸/VV<W>고/EC<W><S><W>싶/VX<W>으니까/EC<W><S><W>말/NNG<W>이/VCP<W>야/EF<W>./SF
+126: 돈/NNG<W>을/JKO<W><S><W>주/VV<W>지/EC<W><S><W>않/VX<W>겠/EP<W>어/EF<W>?/SF
+127: 돈/NNG<W>을/JKO<W><S><W>몽땅/MAG<W><S><W>예금/NNG<W>하/XSV<W>어/EC<W><S><W>놓/VX<W>고/EC<W><S><W>생각/NNG<W>하/XSV<W>니/EC<W><S><W>마음/NNG<W>이/JKS<W><S><W>조금/MAG<W><S><W>가라앉/VV<W>는/ETM<W><S><W>것/NNB<W><S><W>같/VA<W>었/EP<W>다/EF<W>./SF
+128: 돈/NNG<W>을/JKO<W><S><W>가지/VV<W>고/EC<W><S><W>있/VX<W>는/ETM<W><S><W>실험/NNG<W>과/JC<W><S><W>수술/NNG<W>이/JKS<W><S><W>불법/NNG<W>적/XSN<W>이/VCP<W>ᆫ/ETM<W><S><W>것/NNB<W>이/JKC<W><S><W>되/VV<W>기/ETN<W><S><W>직전/NNG<W>에/JKB<W><S><W>두/MM<W><S><W>사람/NNG<W><S><W>발견/NNG<W>하/XSV<W>었/EP<W>다/EF<W>./SF
+129: 돈/NNG<W>을/JKO<W><S><W>모으/VV<W>ᆫ다거나/EC<W>,/SP<W><S><W>즐겁/VA-I<W>게/EC<W><S><W>지내/VV<W>는/ETM<W><S><W>시간/NNG<W>을/JKO<W><S><W>나/NP<W>는/JX<W><S><W>비난/NNG<W>하/XSV<W>ᆯ/ETM<W><S><W>수/NNB<W>가/JKS<W><S><W>없/VA<W>는/ETM<W><S><W>동안/NNG<W><S><W>흉계/NNG<W>를/JKO<W><S><W>꾸미/VV<W>어서/EC<W>,/SP<W><S><W>그/MM<W><S><W>끝/NNG<W>에/JKB<W><S><W>덩굴/NNG<W>을/JKO<W><S><W>얽/VV<W>어/EC<W>매/VV<W>었/EP<W>습니다/EF<W>./SF
+130: 돈/NNG<W>을/JKO<W><S><W>바꾸/VV<W>고/EC<W><S><W>싶/VX<W>으니까/EC<W><S><W>말/NNG<W>이/VCP<W>야/EF<W>./SF
+131: 돈/NNG<W>을/JKO<W><S><W>가지/VV<W>고/EC<W><S><W>보/VX<W>ᆯ까/EF<W>./SF
+132: 돈/NNG<W>을/JKO<W><S><W>모으/VV<W>ᆫ다거나/EC<W>,/SP<W><S><W>즐겁/VA-I<W>게/EC<W><S><W>지내/VV<W>었/EP<W>다/EF<W>./SF
+133: 돈/NNG<W>을/JKO<W><S><W>바꾸/VV<W>고/EC<W><S><W>싶/VX<W>으니까/EC<W><S><W>말/NNG<W>이/VCP<W>야/EF<W>./SF
+134: 돈/NNG<W>을/JKO<W><S><W>주/VV<W>지/EC<W><S><W>않/VX<W>느냐/EC<W><S><W>말/NNG<W>이/VCP<W>야/EF<W>./SF
+135: 돈/NNG<W>을/JKO<W><S><W>가지/VV<W>고/EC<W><S><W>있/VX<W>다/EF<W>./SF
+136: 돈/NNG<W>을/JKO<W><S><W>주/VV<W>지/EC<W><S><W>않/VX<W>느니라/EF<W>./SF
+137: 돈/NNG<W>을/JKO<W><S><W>주/VV<W>지/EC<W><S><W>않/VX<W>으면/EC<W><S><W>안/MAG<W><S><W>되/VV<W>는/ETM<W><S><W>상태/NNG<W>이/VCP<W>다/EF<W>./SF
+138: 돈/NNG<W>을/JKO<W><S><W>가지/VV<W>고/EC<W><S><W>비행장/NNG<W>으로/JKB<W><S><W>되돌아오/VV<W>었/EP<W>다/EF<W>./SF
+139: 돈/NNG<W>을/JKO<W><S><W>두/MM<W><S><W>배/NNG<W>로/JKB<W><S><W>걸/VV<W>지/EC<W><S><W>않/VX<W>었/EP<W>다/EF<W>./SF
+140: 돈/NNG<W>을/JKO<W><S><W>모으/VV<W>ᆫ다거나/EC<W>,/SP<W><S><W>즐겁/VA-I<W>게/EC<W><S><W>걸어가/VV<W>고/EC<W><S><W>있/VX<W>는/ETM<W><S><W>우주복/NNG<W>은/JX<W><S><W>기/NNG<W>압/NNG<W>복/NNG<W>이/VCP<W>라고/EC<W><S><W>부르/VV<W>는/ETM<W><S><W>중국인/NNG<W><S><W>소녀/NNG<W>의/JKG<W><S><W>최후/NNG<W>를/JKO<W><S><W>보/VV<W>었/EP<W>다/EF<W>./SF
+141: 돈/NNG<W>을/JKO<W><S><W>몽땅/MAG<W><S><W>예금/NNG<W>하/XSV<W>어/EC<W><S><W>놓/VX<W>고/EC<W><S><W>응접실/NNG<W>로/JKB<W><S><W>가/VV<W>었/EP<W>다/EF<W>./SF
+142: 돈/NNG<W>을/JKO<W><S><W>모으/VV<W>ᆫ다거나/EC<W>,/SP<W><S><W>즐겁/VA-I<W>게/EC<W><S><W>걸어가/VV<W>고/EC<W><S><W>있/VX<W>었/EP<W>다/EF<W>./SF
+143: 돈/NNG<W>을/JKO<W><S><W>많이/MAG<W><S><W>벌/VV<W>ᆫ/ETM<W><S><W>일/NNG<W>도/JX<W><S><W>있/VV<W>으니까/EC<W><S><W>한/MM<W><S><W>번/NNB<W><S><W>그/MM<W><S><W>잔디밭/NNG<W>을/JKO<W><S><W>바라보/VV<W>었/EP<W>다/EF<W>./SF
+144: 돈/NNG<W>을/JKO<W><S><W>두/MM<W><S><W>배/NNG<W>로/JKB<W><S><W>증가/NNG<W>하/XSV<W>었/EP<W>던/ETM<W><S><W>것/NNB<W>이/JKS<W>다/MAG<W><S><W>서치라이트/NNG<W>의/JKG<W><S><W>불빛/NNG<W>을/JKO<W><S><W>받/VV-R<W>어/EC<W><S><W>가지/VX<W>고/EC<W>는/JX<W><S><W>웃/VV-R<W>으며/EC<W><S><W>말/NNG<W>을/JKO<W><S><W>계속/NNG<W>하/XSV<W>었/EP<W>다/EF<W>./SF
+145: 돈/NNG<W>을/JKO<W><S><W>몽땅/MAG<W><S><W>예금/NNG<W>하/XSV<W>어/EC<W><S><W>놓/VX<W>고/EC<W><S><W>보/VX<W>니/EC<W><S><W>지금/NNG<W>까지/JX<W><S><W>인공/NNG<W><S><W>두뇌/NNG<W>에/JKB<W><S><W>사용/NNG<W>하/XSV<W>기/ETN<W><S><W>위하/VV<W>어/EC<W><S><W>부에노스아이레스/NNP<W>에/JKB<W><S><W>가/VV<W>ᆫ다고/EC<W><S><W>말/NNG<W>하/XSV<W>었/EP<W>다/EF<W>./SF
+146: 돈/NNG<W>을/JKO<W><S><W>가지/VV<W>고/EC<W><S><W>있/VX<W>는/ETM<W><S><W>것/NNB<W>은/JX<W><S><W>지구/NNG<W>를/JKO<W><S><W>돕/VV-I<W>을/ETM<W><S><W>수/NNB<W><S><W>없/VA<W>었/EP<W>다/EF<W>./SF
+147: 돈/NNG<W>을/JKO<W><S><W>모으/VV<W>ᆫ다거나/EC<W>,/SP<W><S><W>즐겁/VA-I<W>게/EC<W><S><W>걸어가/VV<W>고/EC<W><S><W>있/VX<W>었/EP<W>다/EF<W>./SF
+148: 돈/NNG<W>을/JKO<W><S><W>모으/VV<W>ᆫ다거나/EC<W>,/SP<W><S><W>즐겁/VA-I<W>게/EC<W><S><W>걸어가/VV<W>고/EC<W><S><W>있/VX<W>었/EP<W>다/EF<W>./SF
+149: 돈/NNG<W>을/JKO<W><S><W>많이/MAG<W><S><W>내/VV<W>고/EC<W><S><W>입원/NNG<W>시키/XSV<W>러/EC<W><S><W>오/VV<W>ᆫ다는/ETM<W><S><W>거/NNB<W>이/VCP<W>ᆫ가/EF<W>?/SF
+150: 돈/NNG<W>을/JKO<W><S><W>몽땅/MAG<W><S><W>예금/NNG<W>하/XSV<W>어/EC<W><S><W>놓/VX<W>고/EC<W><S><W>싶/VX<W>었/EP<W>기/ETN<W><S><W>때문/NNB<W>이/VCP<W>다/EF<W>./SF
+151: 돈/NNG<W>을/JKO<W><S><W>가지/VV<W>고/EC<W><S><W>밖/NNG<W>으로/JKB<W><S><W>나오/VV<W>자/EC<W><S><W>그/NP<W>는/JX<W><S><W>말없이/MAG<W><S><W>그것/NP<W>에/JKB<W><S><W>열중/NNG<W>하/XSV<W>고/EC<W><S><W>있/VX<W>었/EP<W>으나/EC<W>,/SP<W><S><W>나머지/NNG<W><S><W>두/MM<W><S><W>가닥/NNG<W>은/JX<W><S><W>바다/NNG<W><S><W>쪽/NNB<W>을/JKO<W><S><W>지켜보/VV<W>고/EC<W><S><W>있/VX<W>다/EF<W>./SF
+152: 돈/NNG<W>을/JKO<W><S><W>두/MM<W><S><W>배/NNG<W>로/JKB<W><S><W>증가/NNG<W>하/XSV<W>었/EP<W>던/ETM<W><S><W>것/NNB<W>은/JX<W><S><W>나/NP<W>가/JKC<W><S><W>아니/VCN<W>고/EC<W><S><W>바로/MAG<W><S><W>나/NP<W>이/VCP<W>다/EF<W>./SF
+153: 돈/NNG<W>을/JKO<W><S><W>바꾸/VV<W>고/EC<W><S><W>싶/VX<W>으니까/EC<W><S><W>말/NNG<W>이/VCP<W>야/EF<W>./SF
+154: 돈/NNG<W>을/JKO<W><S><W>몽땅/MAG<W><S><W>예금/NNG<W>하/XSV<W>어/EC<W><S><W>놓/VX<W>고/EC<W><S><W>노지러스/NNP<W><S><W>인/NNG<W>에게/JKB<W><S><W>맡기/VV<W>어/EC<W><S><W>두/VX<W>어/EF<W>./SF
+155: 돈/NNG<W>을/JKO<W><S><W>바꾸/VV<W>고/EC<W><S><W>싶/VX<W>으니까/EC<W><S><W>말/NNG<W>이/VCP<W>야/EF<W>./SF
+156: 돈/NNG<W>을/JKO<W><S><W>많이/MAG<W><S><W>벌/VV<W>ᆫ/ETM<W><S><W>일/NNG<W>도/JX<W><S><W>있/VV<W>을지/EC<W><S><W>모르/VV<W>기/ETN<W><S><W>때문/NNB<W>이/VCP<W>다/EF<W>./SF
+157: 돈/NNG<W>을/JKO<W><S><W>주/VV<W>지/EC<W><S><W>않/VX<W>느냐/EC<W><S><W>말/NNG<W>이/VCP<W>ᆸ니다/EF<W>./SF
+158: 돈/NNG<W>을/JKO<W><S><W>두/MM<W><S><W>배/NNG<W>로/JKB<W><S><W>증가/NNG<W>하/XSV<W>었/EP<W>던/ETM<W><S><W>것/NNB<W>보다/JKB<W><S><W>훨씬/MAG<W><S><W>낮/VA<W>은/ETM<W><S><W>것/NNB<W>이/JKS<W><S><W>들리/VV<W>어/EC<W><S><W>오/VX<W>지/EC<W><S><W>않/VX<W>을/ETM<W><S><W>곳/NNG<W>에서/JKB<W><S><W>살인/NNG<W>이/JKS<W><S><W>일어나/VV<W>었/EP<W>습니다/EF<W>./SF
+159: 돈/NNG<W>을/JKO<W><S><W>몽땅/MAG<W><S><W>따/VV<W>게/EC<W><S><W>되/VV<W>었/EP<W>다/EF<W>./SF
+160: 돈/NNG<W>을/JKO<W><S><W>모으/VV<W>ᆫ다거나/EC<W>,/SP<W><S><W>즐겁/VA-I<W>게/EC<W><S><W>걸어가/VV<W>고/EC<W><S><W>있/VX<W>을/ETM<W><S><W>때/NNG<W>가/JKC<W><S><W>아니/VCN<W>야/EF<W>./SF
+161: 돈/NNG<W>을/JKO<W><S><W>바꾸/VV<W>고/EC<W><S><W>싶/VX<W>으니까/EC<W><S><W>말/NNG<W>이/VCP<W>야/EF<W>./SF
+162: 돈/NNG<W>을/JKO<W><S><W>주/VV<W>지/EC<W><S><W>않/VX<W>으면/EC<W><S><W>너/NP<W>와/JC<W><S><W>나/NP<W>는/JX<W><S><W>담요/NNG<W>로/JKB<W><S><W>만들/VV<W>ᆫ/ETM<W><S><W>그/MM<W>것/NNB<W><S><W>말/NNG<W>이/VCP<W>다/EF<W>./SF
+163: 돈/NNG<W>을/JKO<W><S><W>두/MM<W><S><W>배/NNG<W>로/JKB<W><S><W>걸/VV<W>고/EC<W><S><W>하/VV<W>기/ETN<W>로/JKB<W><S><W>약속/NNG<W>하/XSV<W>었/EP<W>으면서/EF<W>./SF
+164: 돈/NNG<W>을/JKO<W><S><W>주/VV<W>지/EC<W><S><W>않/VX<W>고/EC<W><S><W>모두/MAG<W><S><W>한/MM<W><S><W>국민/NNG<W>이/JKC<W><S><W>되/VV<W>ᆯ/ETM<W><S><W>헤닝스/NNP<W><S><W>씨/NNB<W>이/VCP<W>다/EF<W>./SF
+165: 돈/NNG<W>을/JKO<W><S><W>모으/VV<W>ᆫ다거나/EC<W>,/SP<W><S><W>즐겁/VA-I<W>게/EC<W><S><W>지내/VV<W>ᆯ/ETM<W><S><W>터/NNB<W>이/VCP<W>야/EF<W>?/SF
+166: 돈/NNG<W>을/JKO<W><S><W>두/MM<W><S><W>배/NNG<W>로/JKB<W><S><W>걸/VV<W>지/EC<W><S><W>않/VX<W>었/EP<W>어요/EF<W>?/SF
+167: 돈/NNG<W>을/JKO<W><S><W>몽땅/MAG<W><S><W>예금/NNG<W>하/XSV<W>어/EC<W><S><W>놓/VX<W>고/EC<W><S><W>가/VV<W>ᆫ/ETM<W><S><W>것/NNB<W>이/JKC<W><S><W>아니/VCN<W>ᆫ가/EC<W><S><W>생각/NNG<W>하/XSV<W>어요/EF<W>./SF
+168: 돈/NNG<W>을/JKO<W><S><W>가지/VV<W>고/EC<W><S><W>있/VX<W>으며/EC<W><S><W>높/VA<W>은/ETM<W><S><W>소리/NNG<W>로/JKB<W><S><W>부르/VV<W>었/EP<W>다/EF<W>./SF
+169: 돈/NNG<W>을/JKO<W><S><W>바꾸/VV<W>고/EC<W><S><W>싶/VX<W>으니까/EC<W><S><W>말/NNG<W>이/VCP<W>야/EF<W>./SF
+170: 돈/NNG<W>을/JKO<W><S><W>많이/MAG<W><S><W>내/VV<W>고/EC<W><S><W>입원/NNG<W>시키/XSV<W>러/EC<W><S><W>오/VV<W>ᆫ다는/ETM<W><S><W>거/NNB<W>이/VCP<W>다/EF<W>./SF
+171: 돈/NNG<W>을/JKO<W><S><W>몽땅/MAG<W><S><W>따/VV<W>게/EC<W><S><W>되/VV<W>었/EP<W>다/EF<W>./SF
+172: 돈/NNG<W>을/JKO<W><S><W>바꾸/VV<W>고/EC<W><S><W>싶/VX<W>으니까/EC<W><S><W>말/NNG<W>이/VCP<W>야/EF<W>./SF
+173: 돈/NNG<W>을/JKO<W><S><W>가지/VV<W>고/EC<W><S><W>있/VX<W>지/EF<W>./SF
+174: 돈/NNG<W>을/JKO<W><S><W>가지/VV<W>고/EC<W><S><W>있/VX<W>으면서/EC<W>도/JX<W>,/SP<W><S><W>어쩌면/MAG<W><S><W>자기/NP<W><S><W>나라/NNG<W>의/JKG<W><S><W>무선/NNG<W>국/NNG<W>을/JKO<W><S><W>불러내/VV<W>어/EC<W><S><W>지금/NNG<W>까지/JX<W>의/JKG<W><S><W>자초지종/NNG<W>을/JKO<W><S><W>자세히/MAG<W><S><W>설명/NNG<W>하/XSV<W>어/EC<W><S><W>주/VX<W>었었/EP<W>다/EF<W>./SF
+175: 돈/NNG<W>을/JKO<W><S><W>많이/MAG<W><S><W>가지/VV<W>고/EC<W><S><W>있/VX<W>는데/EC<W><S><W>캐시/NNP<W>가/JKS<W><S><W>들어오/VV<W>었/EP<W>다/EF<W>./SF
+176: 돈/NNG<W>을/JKO<W><S><W>바꾸/VV<W>고/EC<W><S><W>싶/VX<W>으니까/EC<W><S><W>말/NNG<W>이/VCP<W>야/EF<W>./SF
+177: 돈/NNG<W>을/JKO<W><S><W>모으/VV<W>ᆫ다거나/EC<W>,/SP<W><S><W>즐겁/VA-I<W>게/EC<W><S><W>걸어가/VV<W>고/EC<W><S><W>있/VX<W>는데/EC<W>,/SP<W><S><W>소녀/NNG<W>가/JKS<W><S><W>조심조심/MAG<W><S><W>다가오/VV<W>었/EP<W>다/EF<W>./SF
+178: 돈/NNG<W>을/JKO<W><S><W>몽땅/MAG<W><S><W>예금/NNG<W>하/XSV<W>어/EC<W><S><W>놓/VX<W>고/EC<W><S><W>불침번/NNG<W>까지/JX<W><S><W>두/VV<W>고/EC<W><S><W>경계/NNG<W>를/JKO<W><S><W>하/VV<W>는/ETM<W><S><W>것/NNB<W>이/VCP<W>었/EP<W>다/EF<W>./SF
+179: 돈/NNG<W>을/JKO<W><S><W>모으/VV<W>ᆫ다거나/EC<W>,/SP<W><S><W>즐겁/VA-I<W>게/EC<W><S><W>걸어가/VV<W>고/EC<W><S><W>있/VX<W>었/EP<W>다/EF<W>./SF
+180: 돈/NNG<W>을/JKO<W><S><W>바꾸/VV<W>고/EC<W><S><W>싶/VX<W>으니까/EC<W><S><W>말/NNG<W>이/VCP<W>야/EF<W>./SF
+181: 돈/NNG<W>을/JKO<W><S><W>모으/VV<W>ᆫ다거나/EC<W>,/SP<W><S><W>즐겁/VA-I<W>게/EC<W><S><W>지내/VV<W>ᆯ/ETM<W><S><W>터/NNB<W>이/VCP<W>야/EF<W>./SF
+182: 돈/NNG<W>을/JKO<W><S><W>많이/MAG<W><S><W>가지/VV<W>고/EC<W><S><W>있/VX<W>는/ETM<W><S><W>토니/NNP<W>에게/JKB<W><S><W>말/NNG<W>하/XSV<W>었/EP<W>다/EF<W>./SF
+183: 돈/NNG<W>을/JKO<W><S><W>몽땅/MAG<W><S><W>예금/NNG<W>하/XSV<W>어/EC<W><S><W>놓/VX<W>고/EC<W><S><W>밖/NNG<W>으로/JKB<W><S><W>나가/VV<W>었/EP<W>다/EF<W>./SF
+184: 돈/NNG<W>을/JKO<W><S><W>바꾸/VV<W>고/EC<W><S><W>싶/VX<W>으니까/EC<W><S><W>말/NNG<W>이/VCP<W>야/EF<W>./SF
+185: 돈/NNG<W>을/JKO<W><S><W>가지/VV<W>고/EC<W><S><W>돌아오/VV<W>었/EP<W>습니다/EF<W>./SF
+186: 돈/NNG<W>을/JKO<W><S><W>몽땅/MAG<W><S><W>예금/NNG<W>하/XSV<W>어/EC<W><S><W>놓/VX<W>고/EC<W>는/JX<W><S><W>막상/MAG<W><S><W>그때/NNG<W>가/JKC<W><S><W>되/VV<W>면/EC<W><S><W>금속/NNG<W>제/XSN<W>의/JKG<W><S><W>기구/NNG<W>들/XSN<W>이/JKS<W>ᆫ/Z_CODA<W><S><W>가득/MAG<W><S><W>진열/NNG<W>되/XSV<W>어/EC<W><S><W>있/VX<W>었/EP<W>다/EF<W>./SF
+187: 돈/NNG<W>을/JKO<W><S><W>모으/VV<W>ᆫ다거나/EC<W>,/SP<W><S><W>즐겁/VA-I<W>게/EC<W><S><W>걸어가/VV<W>고/EC<W><S><W>있/VX<W>을/ETM<W><S><W>지/NNB<W>도/JX<W><S><W>모르/VV<W>지요/EF<W>./SF
+188: 돈/NNG<W>을/JKO<W><S><W>바꾸/VV<W>고/EC<W><S><W>싶/VX<W>으니까/EC<W><S><W>말/NNG<W>이/VCP<W>야/EF<W>./SF
+189: 돈/NNG<W>을/JKO<W><S><W>주/VV<W>지/EC<W><S><W>않/VX<W>겠/EP<W>어/EF<W>./SF
+190: 돈/NNG<W>을/JKO<W><S><W>가지/VV<W>고/EC<W><S><W>해안/NNG<W>에서/JKB<W><S><W>기다리/VV<W>고/EC<W><S><W>있/VX<W>자/EF<W>./SF
+191: 돈/NNG<W>을/JKO<W><S><W>주/VV<W>지/EC<W><S><W>않/VX<W>겠/EP<W>어/EF<W>?/SF
+192: 돈/NNG<W>을/JKO<W><S><W>바꾸/VV<W>고/EC<W><S><W>싶/VX<W>으니까/EC<W><S><W>말/NNG<W>이/VCP<W>야/EF<W>./SF
+193: 돈/NNG<W>을/JKO<W><S><W>몽땅/MAG<W><S><W>예금/NNG<W>하/XSV<W>어/EC<W><S><W>놓/VX<W>고/EC<W><S><W>휴식/NNG<W>을/JKO<W><S><W>위하/VV<W>어/EC<W><S><W>인간/NNG<W>과/JKB<W><S><W>똑같/VA<W>게/EC<W><S><W>만들/VV<W>어/EC<W>지/VX<W>었/EP<W>다면/EC<W>,/SP<W><S><W>혹은/MAG<W><S><W>그/MM<W><S><W>이론/NNG<W>이/JKS<W><S><W>완성/NNG<W>되/XSV<W>었/EP<W>다/EF<W>./SF
+194: 돈/NNG<W>을/JKO<W><S><W>많이/MAG<W><S><W>가지/VV<W>ᆫ/ETM<W><S><W>젊/VA<W>은/ETM<W><S><W>과학자/NNG<W>./SF
+195: 돈/NNG<W>을/JKO<W><S><W>주/VV<W>지/EC<W><S><W>않/VX<W>었/EP<W>으므로/EC<W><S><W>둘/NR<W>은/JX<W><S><W>어느/MM<W><S><W>새/NNG<W>에/JKB<W><S><W>존이/NNG<W><S><W>스테판/NNP<W>을/JKO<W><S><W>깔/VV<W>어/EC<W><S><W>눕히/VV<W>고/EC<W>,/SP<W><S><W>팔/NNG<W>을/JKO<W><S><W>다치/VV<W>ᆫ/ETM<W><S><W>사람/NNG<W>이/JKS<W><S><W>있/VV<W>었/EP<W>기/ETN<W><S><W>때문/NNB<W>에/JKB<W>........./SF
+196: 돈/NNG<W>을/JKO<W><S><W>모으/VV<W>ᆫ다거나/EC<W>,/SP<W><S><W>즐겁/VA-I<W>게/EC<W><S><W>걸어가/VV<W>고/EC<W><S><W>있/VX<W>었/EP<W>다/EF<W>./SF
+197: 돈/NNG<W>을/JKO<W><S><W>많이/MAG<W><S><W>가지/VV<W>고/EC<W><S><W>있/VX<W>지/EF<W>./SF
+198: 돈/NNG<W>을/JKO<W><S><W>몽땅/MAG<W><S><W>예금/NNG<W>하/XSV<W>어/EC<W><S><W>놓/VX<W>고/EC<W><S><W>있/VX<W>기/ETN<W><S><W>때문/NNB<W>이/VCP<W>었/EP<W>다/EF<W>./SF
+199: 돈/NNG<W>을/JKO<W><S><W>주/VV<W>지/EC<W><S><W>않/VX<W>고/EC<W>,/SP<W><S><W>여기/NP<W>서/JKB<W><S><W>우리/NP<W>들/XSN<W>은/JX<W><S><W>그/MM<W>놈/NNB<W>을/JKO<W><S><W>해치우/VV<W>었/EP<W>다고/EC<W><S><W>말/VX<W>야/EF<W>./SF
+200: 돈/NNG<W>을/JKO<W><S><W>가지/VV<W>고/EC<W><S><W>있/VX<W>다/EF<W>./SF

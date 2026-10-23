@@ -1,0 +1,50 @@
+=== STEP 7 6단계: 프롬프트 진단 (생성하지 않음) ===
+#
+# 프롬프트마다 '모델이 이 말로 시작할 수 있는가' 만 본다.
+# n=6 이므로 문맥은 앞 5개 토큰이다. 프롬프트가 5개를 넘으면
+# BOS 가 전부 밀려나 모델은 문장 첫머리라는 사실을 잊는다.
+#
+# bos_left : 문맥에 남은 BOS 수
+# cand     : 그 문맥의 다음 토큰 후보 수. **0이면 막힘**
+# starts   : 원본에서 이 프롬프트로 시작하는 문장 수
+#
+# prompt	tokens	bos_left	cand	starts	verdict
+돈/NNG<W>을/JKO	2	3	1	7	생성 가능
+로봇/NNG<W>은/JX	2	3	1	44	생성 가능
+우주선/NNG<W>이/JKS	2	3	1	17	생성 가능
+로봇/NNG<W>이/JKS<W><S><W>돈/NNG<W>을/JKO	5	0	0	0	막힘
+컴퓨터/NNG<W>가/JKS<W><S><W>노래/NNG<W>를/JKO<W><S><W>부르/VV	7	0	5	0	생성 가능
+그/NP<W>는/JX<W><S><W>천천히/MAG<W><S><W>고개/NNG<W>를/JKO<W><S><W>들/VV<W>었/EP<W>다/EF	11	0	1	0	생성 가능
+
+## 문맥 상세
+#
+[돈/NNG<W>을/JKO]
+  프롬프트 토큰: 돈/NNG 을/JKO
+  첫 문맥      : BOS BOS BOS 돈/NNG 을/JKO
+  후보         : 1개 (빈도 합 7)
+
+[로봇/NNG<W>은/JX]
+  프롬프트 토큰: 로봇/NNG 은/JX
+  첫 문맥      : BOS BOS BOS 로봇/NNG 은/JX
+  후보         : 1개 (빈도 합 44)
+
+[우주선/NNG<W>이/JKS]
+  프롬프트 토큰: 우주선/NNG 이/JKS
+  첫 문맥      : BOS BOS BOS 우주선/NNG 이/JKS
+  후보         : 1개 (빈도 합 17)
+
+[로봇/NNG<W>이/JKS<W><S><W>돈/NNG<W>을/JKO]
+  프롬프트 토큰: 로봇/NNG 이/JKS <S> 돈/NNG 을/JKO
+  첫 문맥      : 로봇/NNG 이/JKS <S> 돈/NNG 을/JKO
+  후보         : 0개 (빈도 합 0)
+
+[컴퓨터/NNG<W>가/JKS<W><S><W>노래/NNG<W>를/JKO<W><S><W>부르/VV]
+  프롬프트 토큰: 컴퓨터/NNG 가/JKS <S> 노래/NNG 를/JKO <S> 부르/VV
+  첫 문맥      : <S> 노래/NNG 를/JKO <S> 부르/VV
+  후보         : 5개 (빈도 합 11)
+
+[그/NP<W>는/JX<W><S><W>천천히/MAG<W><S><W>고개/NNG<W>를/JKO<W><S><W>들/VV<W>었/EP<W>다/EF]
+  프롬프트 토큰: 그/NP 는/JX <S> 천천히/MAG <S> 고개/NNG 를/JKO <S> 들/VV 었/EP 다/EF
+  첫 문맥      : 를/JKO <S> 들/VV 었/EP 다/EF
+  후보         : 1개 (빈도 합 2)
+

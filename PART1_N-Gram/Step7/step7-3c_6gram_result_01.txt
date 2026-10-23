@@ -1,0 +1,35 @@
+=== STEP 7 Phase 3-c: 토큰 단위 6그램 문장 생성 ===
+#
+# 출력은 토큰 열 그대로다. 읽을 수 있는 문장으로 바꾸는 것은
+# 4단계(kiwi.join 역변환)의 몫이다. 원본과 같은 문장인지 보는 것은 5단계다.
+#
+# seed	1792777410
+#   이 seed 를 두 번째 인자로 주면 같은 결과가 나온다.
+# count	15
+# n	6
+# vocab	16920
+# sentences	64376
+# tokens	1460593
+# total_grams	1524969
+# unique_grams	1030931
+# contexts	826271
+# build_ms	320.000
+# gen_ms	0.000
+# avg_tokens	25.53
+# hit_limit	0	(길이 상한 200 토큰에 걸려 잘린 문장 수)
+#
+1: 침대/NNG<W><S><W>위/NNG<W>의/JKG<W><S><W>신음/NNG<W>은/JX<W><S><W>말/NNG<W>소리/NNG<W>로/JKB<W><S><W>변하/VV<W>었/EP<W>다/EF<W>./SF
+2: 헬리콥터/NNG<W>는/JX<W><S><W>지도/NNG<W>의/JKG<W><S><W>제작/NNG<W>과/JC<W><S><W>지하/NNG<W>의/JKG<W><S><W>광물/NNG<W><S><W>자원/NNG<W><S><W>조사/NNG<W>를/JKO<W><S><W>위하/VV<W>어서/EC<W><S><W>악마/NNG<W>의/JKG<W><S><W>병아리/NNG<W>쯤/XSN<W><S><W>한/MM<W><S><W>마리/NNB<W><S><W>얼씬/MAG<W>하/XSV<W>지/EC<W><S><W>않/VX<W>고/EC<W><S><W>지내/VV<W>는/ETM<W><S><W>일/NNG<W>이/JKS<W><S><W>많이/MAG<W><S><W>있/VA<W>습니다/EF<W>./SF
+3: 토레/NNP<W>가/JKS<W><S><W>돌/NNG<W>을/JKO<W><S><W>깔/VV<W>어/EC<W>놓/VX<W>은/ETM<W><S><W>널따랗/VA-I<W>ᆫ/ETM<W><S><W>마당/NNG<W>으로/JKB<W><S><W>와루코/NNP<W>를/JKO<W><S><W>데리/VV<W>고/EC<W><S><W>가/VV<W>어/EC<W><S><W>주/VX<W>지/EC<W><S><W>않/VX<W>었/EP<W>지/EF<W>./SF
+4: 곧/MAG<W><S><W>일행/NNG<W>은/JX<W><S><W>옆방/NNG<W>으로/JKB<W><S><W>들어가/VV<W>었/EP<W>다/EF<W>./SF
+5: 그대로/MAG<W><S><W>브리지/NNP<W>에/JKB<W><S><W>나타나/VV<W>어서/EC<W><S><W>또/MAG<W><S><W>3/SN<W>분/NNB<W><S><W>정도/NNG<W>의/JKG<W><S><W>속력/NNG<W>으로/JKB<W><S><W>되/VV<W>어/EC<W>,/SP<W><S><W>좋아하/VV<W>는/ETM<W><S><W>기분/NNG<W>도/JX<W><S><W>들/VV<W>지/EC<W><S><W>않/VX<W>었/EP<W>다/EF<W>./SF
+6: 이것/NP<W>은/JX<W><S><W>이렇게/MAG<W><S><W>놓/VV<W>고/EC<W><S><W>이/MM<W><S><W>핸들/NNG<W>을/JKO<W><S><W>이렇/VA-I<W>게/EC<W><S><W>돌리/VV<W>면/EC<W><S><W>준비/NNG<W>가/JKS<W><S><W>다/MAG<W><S><W>되/VV<W>었/EP<W>구나/EF<W>./SF
+7: 보/VV<W>기/ETN<W>에/JKB<W><S><W>추잡/XR<W>하/XSA<W>ᆫ/ETM<W><S><W>희극/NNG<W>배우/NNG<W>이/VCP<W>었/EP<W>기/ETN<W><S><W>때문/NNB<W>에/JKB<W><S><W>이번/NNG<W><S><W>홍수/NNG<W>로/JKB<W><S><W>온/MM<W><S><W>나라/NNG<W><S><W>안/NNG<W>의/JKG<W><S><W>어디/NP<W>서/JKB<W>이/VCP<W>ᆫ가/EC<W><S><W>물/NNG<W>이/JKS<W><S><W>스미/VV<W>어/EC<W><S><W>나오/VV<W>ᆫ다/EF<W>./SF
+8: 글쎄요/IC<W>./SF
+9: 전등/NNG<W>을/JKO<W><S><W>사용/NNG<W>하/XSV<W>면/EC<W><S><W>방사능/NNG<W>이/JKS<W><S><W>나오/VV<W>어/EC<W><S><W>그/NP<W>를/JKO<W><S><W>넓/VA<W>은/ETM<W><S><W>방/NNG<W>이/VCP<W>었/EP<W>다/EF<W>./SF
+10: 임무/NNG<W>가/JKS<W><S><W>무겁/VA-I<W>다/EF<W>./SF
+11: 뒤잇/VV-I<W>어/EC<W><S><W>데밍/NNP<W><S><W>박사/NNG<W>의/JKG<W><S><W>집/NNG<W>과/JC<W><S><W>바다/NNG<W><S><W>속/NNG<W>에서/JKB<W>도/JX<W><S><W>수많/VA<W>은/ETM<W><S><W>크/VA<W>ᆫ/ETM<W><S><W>몸집/NNG<W>의/JKG<W><S><W>인디언/NNG<W><S><W>사나이/NNG<W>가/JKS<W><S><W>얼굴/NNG<W>을/JKO<W><S><W>쑥/MAG<W><S><W>내밀/VV<W>었/EP<W>다/EF<W>./SF
+12: 나/NP<W>를/JKO<W><S><W>만나/VV<W>ᆫ/ETM<W><S><W>로스모/NNP<W>는/JX<W><S><W>자기/NP<W>도/JX<W><S><W>모르/VV<W>게/EC<W><S><W>뒷걸음/NNG<W>질/XSN<W>치/VV<W>었/EP<W>다/EF<W>./SF
+13: 양미간/NNG<W>을/JKO<W><S><W>모으/VV<W>고/EC<W><S><W>있/VX<W>단/ETM<W><S><W>말/NNG<W>야/EF<W>./SF
+14: 아까/NNG<W>보다/JKB<W><S><W>더/MAG<W><S><W>아이/NNG<W>들/XSN<W>의/JKG<W><S><W>공상/NNG<W>에/JKB<W><S><W>지나/VV<W>지/EC<W><S><W>않/VX<W>는다/EF<W>./SF
+15: 그리고/MAJ<W><S><W>물고기/NNG<W>도/JX<W><S><W>낚/VV<W>을/ETM<W><S><W>수/NNB<W><S><W>있/VA<W>는/ETM<W><S><W>태양/NNG<W>에/JKB<W>는/JX<W><S><W>행성/NNG<W>이/JKS<W><S><W>4/SN<W>개/NNB<W>나/JX<W><S><W>5/SN<W>개/NNB<W><S><W>정도/NNG<W>가/JKS<W><S><W>있/VV<W>는데/EC<W><S><W>어째서/MAG<W><S><W>시간/NNG<W><S><W>속/NNG<W>에서/JKB<W>이/VCP<W>다/EF<W>./SF
