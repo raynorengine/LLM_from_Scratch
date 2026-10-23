@@ -1,6 +1,6 @@
 # Progress
 
-**마지막 갱신:** 2026-10-22 (Step6 문장 생성 n=3/5/7 구현·검증 + docs/08 + education 개번 및 07 신규)
+**마지막 갱신:** 2026-10-24 (Step7 형태소 토큰 N-그램 1~6단계 완료 + docs/09 + education 08·09)
 
 ## 현재 단계
 - **STEP 1 완료**: 글자 빈도 계산 (C) + 독립 검증
@@ -16,16 +16,25 @@
   - 원본 통째 일치: 3그램 0/15 · 5그램 1/15(6.7%) · 7그램 3/15(20.0%) — 7그램에서 암기가 드러남
   - **문장 데이터에서는 7그램이 가능**: 글자 종류가 줄어(2,450→1,596) V⁶ = 1.67×10¹⁹ < 2⁶⁴ (여유 1.108배)
   - 검증 88개 전부 통과 (약 41초)
-- 다음: 강의 예고는 **글자 → 단어(토큰) 단위**. 형태소 분석기 사용. 강의 자료 수령 대기
+- **STEP 7 진행 중 (2026-10-23~24)**: **형태소 토큰 단위** 6그램 (강의 2-9). Phase로 쪼개 진행
+  - 1단계 전처리 / 2단계 토큰화 / 3단계 번호·세기·생성 / 4단계 역변환 / 5단계 원본 비교 / 6단계 프롬프트 **완료**
+  - **7단계(백오프)는 Step8로 분리** — 아직 시작 안 함
+  - 첫 외부 의존성: **Kiwi**(`kiwipiepy` 0.24.1). 토큰 = 형태소, 공백은 `<S>`, 토큰 구분은 `<W>`
+  - 어휘 16,918종 / 토큰 1,460,593개 / 문장 64,376개
+  - 생성 200문장 실측: 통째 일치 24.5%, **평균 복사 비율 71.0%**, 중복 0%
+  - 프롬프트 `돈을` 200문장: 통째 14.0%, 복사 74.6%, **중복 39%** → 7단계 평가는 프롬프트 조건에서
 
 ## 완료
 - `CLAUDE.md` 규칙 (워크플로우 / 장시간 작업 사전 승인 / 가짜 검증 금지 / 기록 트리거 / 세션 시작 절차 / 코딩 컨벤션)
   - 2026-10-21: 학습용 주석 규칙, 여러 파일 C 구현 규칙
   - 2026-10-22: 강의 결과는 목표 아님 / 예시 값은 실측만 / `.gitattributes`
-- `docs/` 01~08 (`08_generate_sentence.md` 신규 — 강의 수치와 실측 불일치, 분할 함정 5개, 7그램 키 한계)
-- `education/` 01~07 — **2026-10-22 개번**: 옛 `07_N-Gram` → `06_N-Gram` (폐기된 `06_CSR` 자리를 메움),
-  문장 생성 문서가 `07_Sentence-Generation` (976줄)
-- `PART1_N-Gram/Step1/` ~ `Step6/` 구현 + 검증
+- `docs/` 01~09 (`09_Morpheme-NGram.md` 신규 — 형태소 분석, `<W>`/`<S>` 표기, 백오프, 과적합)
+- `education/` 01~09 — **2026-10-22 개번**: 옛 `07_N-Gram` → `06_N-Gram` (폐기된 `06_CSR` 자리를 메움),
+  문장 생성 문서가 `07_Sentence-Generation` (본문 H1 `# 08.` 오타도 수정)
+  - `08_Morpheme-Tokenization` (Step7 1·2단계) / `09_Token-NGram` (Step7 3~6단계, 복습 정리 1~32)
+  - **단계가 늘어도 문서를 새로 만들지 않는다** — 같은 Step의 연속 단계는 한 문서에 이어 쓴다 (2026-10-24 사용자 지시)
+- `PART1_N-Gram/Step1/` ~ `Step7/` 구현 + 검증
+- `reference/` — 강의 실습 예제 코드(C·Python). 참고용, 필수 아님 (내부 `data/`는 gitignore)
 - 루트 `.gitattributes` (`*.txt text eol=lf`), `.claude/settings.json` (attribution 끔)
 
 ## 폴더 구성 규칙 (요약, 상세는 CLAUDE.md)
@@ -53,6 +62,10 @@ PART{N}_{주제}/Step{N}/
   - 전체 n그램은 n과 무관하게 **1,944,252** (= 글자 1,877,291 + 문장 66,961)
   - 서로 다른 n그램 / 문맥: n=3 171,051 / 38,032 · n=5 821,221 / 473,641 · n=7 1,319,934 / 1,092,883
 - `data/korean_free_novel/` — 근대문학 txt 84개 (10.58MB). Step6은 쓰지 않음 (novel_test_data.txt 사용)
+- **Step7은 `data/novel_sentences.txt`를 쓰지 않는다.** 공부용으로 `novel_test_data.txt`부터 다시 전처리했고,
+  산출물은 전부 `PART1_N-Gram/Step7/` 안에 둔다 (2026-10-24 규칙)
+  - `step7-1_sentences.txt` — **64,376문장 / 1,845,900글자 / 1,562종** (정제로 33,825자·34종 제거)
+  - `step7-2b_tokens.txt` — 토큰 **1,460,593개**, `<S>` 408,173개(27.9%), 형태소 어휘 16,917종
 - **`.gitignore`에 `data/` 포함 → Git 동기화 안 됨.** 다른 PC에서는 강의 자료를 다시 받아 `data/` 아래에 둘 것
   - `novel_sentences.txt`도 git에 없다 → 새 PC에서 `python step6_prepare.py` 를 한 번 실행해야 한다
 
@@ -101,16 +114,20 @@ python step6_verify.py [--n 7 | --self-test | --compare]
   데이터에 `<` `>` 가 없음을 전수 확인해 충돌 없음. **결과 파일의 문장은 글자 그대로**
 
 ## 다음 할 일
-1. 다음 강의(글자 → 단어/형태소) 자료 수령 → docs → 브리핑 → 승인 → 구현
-2. 사용자 결정 대기
+1. **Step8 = 7단계 백오프** — 브리핑 → 승인 → 구현
+   - 고칠 것 둘: ① 막힌 프롬프트(`로봇이 돈을` 후보 0개) ② 프롬프트 조건 중복 39%
+   - 강의 설정: `MIN_BACKOFF 2`, `BACKOFF_THRESHOLD 1`(후보 1개면 백오프), `MAX_NGRAM 10`
+   - 평가는 **프롬프트 고정 조건**에서 중복률 + 평균 복사 비율
+2. Step7 미착수: n을 2~10으로 확장(강의 범위). 단일 n 파이프라인이 끝난 뒤로 미룸
+3. 사용자 결정 대기
    - Step5 trigram ↔ 4~6gram **작성 방식 통일** 여부 (n과 무관한 차이 5곳, education/06 3.4)
    - `education/05`·`docs/06`의 CSR 서술 정리 (사용자가 추후 지시)
    - `docs/07`에 Step5 실측 반영 여부
    - `docs/04_Unigram.md` 재작성, Step1·2 주석 소급 적용 (이전부터 미결)
    - Step6에 **최장 연속 일치 길이** 지표 추가 여부 (브리핑에서 제안했으나 비용 때문에 보류)
-3. 미반영: `.gitignore`에 `~$*` 추가
-4. 미확인: 강의 트라이그램 일치율 61.7% vs 실측 57~58%의 원인
-5. 해소됨: `education/06_CSR.md` 결번 → 2026-10-22 사용자가 `07_N-Gram` → `06_N-Gram` 으로 개번
+4. 미반영: `.gitignore`에 `~$*` 추가
+5. 미확인: 강의 트라이그램 일치율 61.7% vs 실측 57~58%의 원인
+6. 해소됨: `education/06_CSR.md` 결번 → 2026-10-22 사용자가 `07_N-Gram` → `06_N-Gram` 으로 개번
 
 ## 이슈/주의사항
 - **빈도표(`*_table.txt`)는 git에 없다** (`.gitignore`). 새 PC에서는 각 step 프로그램을 인자 없이 한 번 실행해야 생기고, 그 전에는 verify의 빈도표 검사가 FAIL
@@ -119,7 +136,9 @@ python step6_verify.py [--n 7 | --self-test | --compare]
   NBSP 31개가 사라져도 "손실 0"으로 보고했다. **검사에서 제외하는 범위는 직접 열거해서 최소로** 잡을 것
   (`SKIPPABLE_WS = " \t"`). 남이 정한 분류를 검사 범위로 쓰면 구멍이 난다
 - **커밋 attribution 끔**: `.claude/settings.json`의 `attribution` (Co-Authored-By 안 붙음)
-- **Windows에서 C의 argv는 CP949**: 한글을 명령줄 인자로 넘기면 깨진다 → 검증 모드는 한글을 표준입력으로 받는다
+- **Windows에서 C의 argv는 CP949**: 한글을 명령줄 인자로 넘기면 깨진다
+  - Step6까지: 검증 모드가 한글을 **표준입력**으로 받음
+  - Step7-6부터: `CommandLineToArgvW` + `WideCharToMultiByte(CP_UTF8)` 로 명령줄을 다시 받는 `utf8_argv()` 사용
 - **git push 인증 함정**: 샌드박스의 `GIT_TERMINAL_PROMPT=0`, `GCM_INTERACTIVE=never` 해제 후 `git -c credential.guiPrompt=true`로 push (`devlog/2026-10-07.md`)
 - **이 PC의 `core.autocrlf=true`**: LF로 커밋된 파일이 `git status`에 `M`으로 떠도 `git diff`가 비어 있으면 줄바꿈 표시 차이일 뿐이다 (내용 변경 아님)
 - **Claude 셸의 `NoDefaultCurrentDirectoryInExePath=1`**: `build.bat`은 `.\build.bat` 처럼 경로를 명시해 호출, exe는 `./`로 직접 실행
